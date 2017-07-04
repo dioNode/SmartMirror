@@ -7,8 +7,8 @@ viewBox="0 0 10000 9000"
  <defs>
   <style type="text/css">
    <![CDATA[
-    .red {fill:rgba(184, 46, 51, 0.1)}
-    .white {fill:rgba(255, 255, 255, 0.1)}
+    .red {fill:rgba(184, 46, 51, 0.2)}
+    .white {fill:rgba(255, 255, 255, 0.2)}
    ]]>
   </style>
  </defs>
