@@ -6,7 +6,35 @@
   <link rel="stylesheet" href="css/home.css" type="text/css" />
 </head>
 <body>
-<h1>Testin321g</h1>
-<p>Something new</p>
+<div class="layer-container">
+  <div class="layer">
+    <video autoplay="true" id="videoElement">
+
+    </video>
+  </div>
+</div>
+
+
+<script>
+
+var video = document.querySelector("#videoElement");
+
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+if (navigator.getUserMedia) {
+    navigator.getUserMedia({video: true}, handleVideo, videoError);
+}
+
+function handleVideo(stream) {
+    video.src = window.URL.createObjectURL(stream);
+}
+
+function videoError(e) {
+    // do something
+}
+
+</script>
+
+
 </body>
 </html>

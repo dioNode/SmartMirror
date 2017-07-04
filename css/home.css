@@ -3,3 +3,18 @@ body {
   color: white;
   background: #000000 url('../img/bg.svg');
 }
+
+.layer-container {
+  position: relative;
+  width: 500px;
+  height: 800px;
+  margin: 40px auto 0 auto;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
