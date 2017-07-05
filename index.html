@@ -14,7 +14,8 @@
 <body>
 <div class="layer-container">
   <div class="layer">
-    <video id="videoElement" autoplay preload loop muted></video>
+    <video id="videoElement" width="500" height="800" preload autoplay loop muted></video>
+  <canvas id="faceTrackDebug" width="500" height="800"></canvas>
   </div>
   <div class="layer" id="overlay-container">
     <div class="overlay" id="dateTime">
@@ -26,9 +27,9 @@
     </div>
   </div>
 
-  <div class="layer">
+  <!-- <div class="layer">
     <canvas id="faceTrackDebug"></canvas>
-  </div>
+  </div> -->
 
   <div class="layer" id="standby-screen">
   </div>
