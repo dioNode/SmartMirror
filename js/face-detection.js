@@ -1,4 +1,4 @@
- window.onload = function(){
+$(document).ready(function(){
   var video = document.getElementById('videoElement');
   var canvas = document.getElementById('faceTrackDebug');
   var context = canvas.getContext('2d');
@@ -23,4 +23,4 @@
 
 
   tracking.track('#videoElement', tracker, { camera: true });
-};
+});
