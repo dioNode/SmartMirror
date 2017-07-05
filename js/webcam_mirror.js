@@ -41,7 +41,7 @@ $(document).ready(function(){
          };
      } else {
          return {
-             mandatory: {
+             optional: {
                  minWidth: width,
                  minHeight: height
              }
