@@ -2,7 +2,7 @@
   width: 200px;
   height: 150px;
   position: relative;
-  top: 200px;
+  top: 50px;
   margin: auto;
   text-align: center;
   color: #9fdcf4;
@@ -10,8 +10,9 @@
 
 #time {
   font-family: 'Digital-7 Mono';
-  font-size: 75px;
+  font-size: 65px;
 }
+
 
 #overlay-container {
   border: 2px solid blue;

@@ -1,5 +1,6 @@
 $(document).ready(function(){
   updateTime();
+  var t=setInterval(update,1000);
 })
 
 var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -7,6 +8,10 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 
 var dayNames = ["Sun","Mon", "Tues", "Wed", "Thurs","Fri","Sat"];
+
+function update(){
+  updateTime();
+}
 
 function updateTime(){
   today = new Date();
