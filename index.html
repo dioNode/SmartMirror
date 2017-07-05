@@ -1,63 +1,39 @@
 <!doctype html>
-<!-- <<html>
-<head>
-  <title>SmartMirror - RAID</title>-->
-  <link rel="stylesheet" href="css/home.css" type="text/css" /><!--
-  <link rel="stylesheet" href="css/overlays.css" type="text/css" />
-  <script src="js/jquery-3.2.1.min.js"></script> -->
-  <!-- <script src="js/webcam_mirror.js"></script> -->
-  <!-- <script src="js/swipe_overlays.js"></script>
-
-  <script src="js/tracking-min.js"></script>
-  <script src="js/data/face-min.js"></script>
-</head>
-<body> -->
-<!-- <div class="layer-container">
-  <div class="layer">
-    <video id="videoElement" width="500" height="800" preload autoplay loop muted></video>
-  <canvas id="faceTrackDebug" width="500" height="800"></canvas>
-  </div>
-  <div class="layer" id="overlay-container">
-    <div class="overlay" id="dateTime">
-      <div id="time">00:00</div>
-      <div id="date">day/month year day</div>
-    </div>
-    <div class="overlay" id="weather">
-
-    </div>
-  </div>
-
-  <div class="layer">
-    <canvas id="faceTrackDebug"></canvas>
-  </div>
-
-  <div class="layer" id="standby-screen">
-  </div>
-</div> -->
-
-
-  <!-- <video id="videoElement" width="500" height="800" preload autoplay loop muted></video>
-<canvas id="faceTrackDebug" width="500" height="800"></canvas>
-
-<script src="js/face-detection.js"></script>
-</body>
-</html> -->
 <html>
+
 <head>
-  <meta charset="utf-8">
   <title>SmartMirror - RAID</title>
+  <link rel="stylesheet" href="css/home.css" type="text/css" />
+  <link rel="stylesheet" href="css/overlays.css" type="text/css" />
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/webcam_mirror.js"></script>
+  <script src="js/swipe_overlays.js"></script>
 
   <script src="js/tracking-min.js"></script>
-  <script src="js/data/face-min.js"></script>
 </head>
+
 <body>
-  <div class="demo-frame">
-    <div class="demo-container">
-      <video id="videoElement" width="250" height="400" preload autoplay loop muted></video>
-      <canvas id="faceTrackDebug" width="250" height="400"></canvas>
+  <div class="layer-container">
+    <div class="layer">
+      <video id="videoElement" width="500" height="800" preload autoplay loop muted></video>
+    </div>
+    <div class="layer" id="overlay-container">
+      <div class="overlay" id="dateTime">
+        <div id="time">00:00</div>
+        <div id="date">day/month year day</div>
+      </div>
+      <div class="overlay" id="weather">
+
+      </div>
+    </div>
+
+    <div class="layer">
+      <canvas id="faceTrackDebug"></canvas>
+    </div>
+
+    <div class="layer" id="standby-screen">
     </div>
   </div>
-
-  <script src="js/face-detection.js"></script>
 </body>
+
 </html>
