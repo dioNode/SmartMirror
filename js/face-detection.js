@@ -6,7 +6,7 @@ $(document).ready(function(){
   tracker.setInitialScale(4);
   tracker.setStepSize(2);
   tracker.setEdgesDensity(0.1);
-  tracking.track('#video', tracker, { camera: true });
+  tracking.track('#videoElement', tracker, { camera: true });
   tracker.on('track', function(event) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     event.data.forEach(function(rect) {
