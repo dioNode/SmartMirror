@@ -9,7 +9,10 @@ window.onload = function() {
     camera: true
   });
 
+  console.log("Registered colour tracker.");
+
   tracker.on('track', function(event) {
+    console.log("Test");
     context.clearRect(0, 0, canvas.width, canvas.height);
     event.data.forEach(function(rect) {
       context.strokeStyle = "#00FFFF";
