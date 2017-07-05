@@ -40,6 +40,6 @@ canvas {
 
 video, canvas {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  /*width: 500px;
+  height: 500px;*/
 }
