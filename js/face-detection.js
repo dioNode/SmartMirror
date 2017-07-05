@@ -1,4 +1,4 @@
-$(document).ready(function(){
+ window.onload = function(){
   var video = document.getElementById('videoElement');
   var canvas = document.getElementById('faceTrackDebug');
   var context = canvas.getContext('2d');
@@ -21,6 +21,6 @@ $(document).ready(function(){
     });
   });
 
-  
+
   tracking.track('#videoElement', tracker, { camera: true });
-});
+};
