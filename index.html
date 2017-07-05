@@ -5,15 +5,17 @@
   <link rel="stylesheet" href="css/home.css" type="text/css" />
   <link rel="stylesheet" href="css/overlays.css" type="text/css" />
   <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/webcam_mirror.js"></script>
+  <!-- <script src="js/webcam_mirror.js"></script> -->
   <script src="js/swipe_overlays.js"></script>
+
+  <script src="js/tracking-min.js"></script>
+  <script src="js/data/face-min.js"></script>
+  <script src="js/face-detection.js"></script>
 </head>
 <body>
 <div class="layer-container">
   <div class="layer">
-    <video autoplay="true" id="videoElement">
-
-    </video>
+    <video id="videoElement" autoplay preload loop muted></video>
   </div>
   <div class="layer" id="overlay-container">
     <div class="overlay" id="dateTime">
@@ -23,6 +25,10 @@
     <div class="overlay" id="weather">
 
     </div>
+  </div>
+
+  <div class="layer">
+    <canvas id="faceTrackDebug"></canvas>
   </div>
 
   <div class="layer" id="standby-screen">

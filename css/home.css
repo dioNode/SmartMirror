@@ -14,6 +14,11 @@ video {
   -moz-transform:rotateY(180deg); /* Firefox */
 }
 
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
 .layer-container {
   position: relative;
   width: 500px;
