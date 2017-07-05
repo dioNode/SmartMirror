@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var video = document.querySelector("#videoElement");
+  var video = document.querySelector("#webcam_video");
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
