@@ -23,4 +23,4 @@ window.onload = function(){
 
 
   tracking.track('#videoElement', tracker, { camera: true });
-}
+};
