@@ -10,7 +10,10 @@ $(document).ready(function(){
       if (compatibleBrowser) {
           window.URL = window.URL || window.webkitURL;
 
-          navigator.getUserMedia({
+          navigator.getUserMedia_ = (   navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+        if ( !! navigator.getUserMedia_) {
+            navigator.getUserMedia_({
               audio: false,
               video: videoResolution
           },
@@ -20,6 +23,7 @@ $(document).ready(function(){
           function(err) {
               console.log("The following error occured: " + err.name);
           });
+        }
       } else {
           console.log("getUserMedia not supported");
       }
