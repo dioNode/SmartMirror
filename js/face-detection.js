@@ -1,17 +1,10 @@
-$(document).ready(function(){
+ window.onload = function(){
   var video = document.getElementById('videoElement');
   var canvas = document.getElementById('faceTrackDebug');
   var context = canvas.getContext('2d');
 
 
   var tracker = new tracking.ObjectTracker('face');
-
-
-  tracker.setInitialScale(4);
-  tracker.setStepSize(2);
-  tracker.setEdgesDensity(0.1);
-
-  tracking.track('#videoElement', tracker, { camera: true });
 
   tracker.on('track', function(event) {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -27,4 +20,7 @@ $(document).ready(function(){
       console.log('x: ' + rect.x + '    y: ' + rect.y);
     });
   });
-});
+
+
+  tracking.track('#videoElement', tracker, { camera: true });
+};
