@@ -1,0 +1,28 @@
+#dateTime {
+  width: 200px;
+  height: 150px;
+  position: relative;
+  top: 200px;
+  margin: auto;
+  text-align: center;
+  color: #9fdcf4;
+}
+
+#time {
+  font-family: 'Digital-7 Mono';
+  font-size: 75px;
+}
+
+#overlay-container {
+  border: 2px solid blue;
+}
+
+@font-face {
+	font-family: 'Digital-7 Mono';
+	src: url('../fonts/Digital-7Mono.eot');
+	src: url('../fonts/Digital-7Mono.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Digital-7Mono.woff') format('woff'),
+		url('../fonts/Digital-7Mono.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
