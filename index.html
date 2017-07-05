@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="css/home.css" type="text/css" />
   <link rel="stylesheet" href="css/overlays.css" type="text/css" />
   <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/webcam_mirror.js"></script>
   <script src="js/swipe_overlays.js"></script>
 </head>
 <body>
@@ -23,28 +24,6 @@
     </div>
   </div>
 </div>
-
-
-<script>
-
-var video = document.querySelector("#videoElement");
-
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
-
-if (navigator.getUserMedia) {
-    navigator.getUserMedia({video: true}, handleVideo, videoError);
-}
-
-function handleVideo(stream) {
-    video.src = window.URL.createObjectURL(stream);
-}
-
-function videoError(e) {
-    // do something
-}
-
-</script>
-
 
 </body>
 </html>
