@@ -1,6 +1,19 @@
 $(document).ready(function(){
   updateTime();
   var t=setInterval(update,1000);
+
+  $(window).keyup(function (e) {
+    var key = e.which;
+    if(key == 13 || key == 39) { // the enter key code or right arrow
+      //$('.next').click();
+      console.log('right');
+      nextOverlay();
+    } else if(key == 37) { // left arrow
+      //$('.prev').click();
+      console.log('left');
+      prevOverlay();
+    }
+  });
 })
 
 var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -8,6 +21,26 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 
 var dayNames = ["Sun","Mon", "Tues", "Wed", "Thurs","Fri","Sat"];
+
+function nextOverlay(){
+  currentOverlay = $('#chosenOverlay');
+  $("#chosenOverlay").removeAttr('id');
+  if ($(currentOverlay).next().length){
+    $(currentOverlay).next().attr('id','chosenOverlay');
+  } else {
+    $('.overlay:first-of-type').attr('id','chosenOverlay');
+  }
+}
+
+function prevOverlay(){
+  currentOverlay = $('#chosenOverlay');
+  $("#chosenOverlay").removeAttr('id');
+  if ($(currentOverlay).prev().length){
+    $(currentOverlay).prev().attr('id','chosenOverlay');
+  } else {
+    $('.overlay:last-of-type').attr('id','chosenOverlay');
+  }
+}
 
 function update(){
   updateTime();

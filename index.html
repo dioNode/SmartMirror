@@ -7,6 +7,8 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <!-- <script src="js/webcam_mirror.js"></script> -->
   <script src="js/swipe_overlays.js"></script>
+  <script src="js/weather/jquery.simpleWeather.js"></script>
+  <script src="js/weather/weather.js"></script>
 
   <script src="js/tracking-min.js"></script>
   <script src="js/data/face-min.js"></script>
@@ -18,12 +20,17 @@
     <video id="videoElement" autoplay preload loop muted></video>
   </div>
   <div class="layer" id="overlay-container">
-    <div class="overlay" id="dateTime">
+    <div class="overlay">
       <div id="time">00:00</div>
       <div id="date">day/month year day</div>
     </div>
-    <div class="overlay" id="weather">
-
+    <div class="overlay" id="chosenOverlay">
+      <div id="weather">
+        
+      </div>
+    </div>
+    <div class="overlay">
+      calendar
     </div>
   </div>
 
