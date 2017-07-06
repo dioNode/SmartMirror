@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var currentCity;
   var currentCountry;
-  $.get("http://ipinfo.io", function(response) {
+  $.get("https://ipinfo.io", function(response) {
     console.log(response.city, response.country);
     currentCity = response.city;
     currentCountry = response.country;
@@ -15,13 +15,13 @@ function calculateWeather(currentCity, currentCountry){
   $.simpleWeather({
     location: currentCity + ', ' + currentCountry,
     woeid: '',
-    unit: 'f',
+    unit: 'c',
     success: function(weather) {
       $("#location").text(weather.city);
       $("#temperature").html(weather.temp+'&deg;'+weather.units.temp);
-      if (weather.units.speed == 'mph'){
-        $("#wind").text('Level '+findLevel(weather.wind.speed));
-      }
+      $("#wind").text('Level '+findLevel(weather.wind.speed));
+
+      console.log(weather.units.speed);
       console.log(weather.currently);
 
       /*html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
