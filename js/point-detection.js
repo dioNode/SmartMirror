@@ -24,7 +24,6 @@ function initialisePointDetection() {
   console.log("Registered colour tracker.");
 
   $('#webcam_video').bind("loadedmetadata", function() {
-
     canvas.width = video.scrollWidth;
     canvas.height = video.scrollHeight;
   });
@@ -36,7 +35,4 @@ function initialisePointDetection() {
       context.strokeRect(rect.x, rect.y, rect.width, rect.height);
     });
   });
-
-
-
 }
