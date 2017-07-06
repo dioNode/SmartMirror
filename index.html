@@ -16,32 +16,33 @@
 </head>
 
 <body>
-<div class="layer-container set-deimention">
-  <div class="layer">
-    <video id="webcam_video" class="flip" height="800" preload autoplay loop muted></video>
-  </div>
-  <div class="layer" id="overlay-container">
-    <div class="overlay">
-      <div id="time">00:00</div>
-      <div id="date">day/month year day</div>
-    </div>
-    <div class="overlay" id="chosenOverlay">
-      <div id="weather">
-        <div id="location"></div>
-        <div id="temperature"></div>
-        <div id="air quality"></div>
-        <div id="wind"></div>
-      </div>
-    </div>
-    <div class="overlay">
-      calendar
-    </div>
-
+  <div class="layer-container set-deimension">
     <div class="layer">
-      <canvas id="pointTrackDebug" class="flip" height="800"></canvas>
+      <video id="webcam_video" class="flip" height="800" preload autoplay loop muted></video>
     </div>
+    <div class="layer" id="overlay-container">
+      <div class="overlay">
+        <div id="time">00:00</div>
+        <div id="date">day/month year day</div>
+      </div>
+      <div class="overlay" id="chosenOverlay">
+        <div id="weather">
+          <div id="location"></div>
+          <div id="temperature"></div>
+          <div id="air quality"></div>
+          <div id="wind"></div>
+        </div>
+      </div>
+      <div class="overlay">
+        calendar
+      </div>
 
-    <div class="layer" id="standby-screen">
+      <div class="layer">
+        <canvas id="pointTrackDebug" class="flip" height="800"></canvas>
+      </div>
+
+      <div class="layer" id="standby-screen">
+      </div>
     </div>
   </div>
 </body>
