@@ -19,10 +19,11 @@ function calculateWeather(currentCity, currentCountry){
     success: function(weather) {
       $("#location").text(weather.city);
       $("#temperature").html(weather.temp+'&deg;'+weather.units.temp);
-      $("#wind").text('Level '+findLevel(weather.wind.speed));
+      $("#wind").text(weather.wind.speed+' '+weather.units.speed);
 
       console.log(weather.units.speed);
       console.log(weather.currently);
+      setWeatherImg(weather.currently);
 
       /*html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
@@ -36,6 +37,20 @@ function calculateWeather(currentCity, currentCountry){
       $("#weather").html('<p>'+error+'</p>');
     }
   });
+}
+
+function setWeatherImg(condition){
+  if (condition.indexOf('storm')!==-1){
+    $("#weather img").attr('src','img/weatherTypes/storm.png');
+  } else if (condition.indexOf('rain')!==-1){
+    $("#weather img").attr('src','img/weatherTypes/rain.png');
+  } else if (condition.indexOf('snow')!==-1){
+    $("#weather img").attr('src','img/weatherTypes/snow.jpeg');
+  } else if (condition.indexOf('cloud')!==-1){
+    $("#weather img").attr('src','img/weatherTypes/cloudy.jpeg');
+  } else {
+    $("#weather img").attr('src','img/weatherTypes/sunny.jpeg');
+  }
 }
 
 function findLevel(mph){

@@ -41,6 +41,7 @@ function prevOverlay(){
 }
 
 function update(){
+  // Run things that update per second
   updateTime();
 }
 
