@@ -17,4 +17,6 @@ $(document).ready(function() {
   function videoError(e) {
     // do something
   }
+
+  initialisePointDetection();
 });
