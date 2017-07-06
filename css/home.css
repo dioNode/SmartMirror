@@ -10,16 +10,16 @@ video {
 }
 
 canvas {
-transform: translateX(-25%);
+  transform: translateX(-25%);
 }
 
 .flip {
   transform: rotateY(180deg);
-  -webkit-transform:rotateY(180deg);
-  -moz-transform:rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 
-.set-deimension {
+.set-deimention {
   width: 500px;
   height: 800px;
 }
@@ -37,6 +37,5 @@ transform: translateX(-25%);
   position: absolute;
   top: 0;
   left: 0;
-
   overflow: hidden;
 }
