@@ -4,14 +4,12 @@ $(document).ready(function(){
 
   $(window).keyup(function (e) {
     var key = e.which;
-    if(key == 13 || key == 39) { // the enter key code or right arrow
-      //$('.next').click();
+    if(key == 13 || key == 39) {
       console.log('right');
-      nextOverlay();
+      //nextOverlay();
     } else if(key == 37) { // left arrow
-      //$('.prev').click();
       console.log('left');
-      prevOverlay();
+      //prevOverlay();
     }
   });
 })

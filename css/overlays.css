@@ -1,12 +1,9 @@
 .overlay {
-  width: 200px;
-  height: 150px;
-  position: relative;
-  top: 50px;
-  margin: auto;
-  text-align: center;
-  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   color: #9fdcf4;
+  margin: 10px;
 }
 
 #chosenOverlay {
@@ -16,11 +13,23 @@
 #time {
   font-family: 'Digital-7 Mono';
   font-size: 65px;
+  top: 10px;
+  position: absolute;
+  left: 10px;
+  text-align: left;
+  padding: 10px;
 }
 
+#weather{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-align: right;
+  padding: 10px;
+}
 
 #overlay-container {
-  border: 2px solid blue;
+  background-color: rgba(0,0,0,0.4);
 }
 
 @font-face {
