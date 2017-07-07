@@ -25,6 +25,8 @@ function calculateWeather(currentCity, currentCountry){
       console.log(weather.currently);
       setWeatherImg(weather.currently);
 
+      $("#weather").fadeIn(3000);
+
       /*html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
       html += '<li class="currently">'+weather.currently+'</li>';

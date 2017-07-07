@@ -2,6 +2,11 @@ $(document).ready(function(){
   updateTime();
   var t=setInterval(update,1000);
 
+  if (document.readyState === "complete"){
+    console.log("ready");
+    initiateFades();
+  }
+
   $(window).keyup(function (e) {
     var key = e.which;
     if(key == 13 || key == 39) {
@@ -19,6 +24,10 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 
 var dayNames = ["Sun","Mon", "Tues", "Wed", "Thurs","Fri","Sat"];
+
+function initiateFades(){
+  $('#dateTime').fadeIn(2000);
+}
 
 function nextOverlay(){
   currentOverlay = $('#chosenOverlay');
