@@ -37,8 +37,17 @@
   padding: 10px;
 }
 
+#calandar{
+  position: absolute;
+  right: 30px;
+  top: 200px;
+  text-align: right;
+  padding: 10px;
+}
+
 #overlay-container {
   background-color: rgba(0,0,0,0.4);
+  opacity: 0.7;
 }
 
 @font-face {
