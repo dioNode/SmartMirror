@@ -2,7 +2,6 @@ $(document).ready(function() {
   var currentCity;
   var currentCountry;
   $.get("https://ipinfo.io", function(response) {
-    console.log(response.city, response.country);
     currentCity = response.city;
     currentCountry = response.country;
   }, "jsonp").done(function() {
@@ -20,9 +19,6 @@ function calculateWeather(currentCity, currentCountry){
       $("#location").text(weather.city);
       $("#temperature").html(weather.temp+'&deg;'+weather.units.temp);
       $("#wind").text(weather.wind.speed+' '+weather.units.speed);
-
-      console.log(weather.units.speed);
-      console.log(weather.currently);
       setWeatherImg(weather.currently);
 
       $("#weather").fadeIn(3000);
@@ -43,15 +39,15 @@ function calculateWeather(currentCity, currentCountry){
 
 function setWeatherImg(condition){
   if (condition.indexOf('storm')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/storm.png');
+    $("#weather img").attr('src','img/weatherTypes/shower.png');
   } else if (condition.indexOf('rain')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/rain.png');
+    $("#weather img").attr('src','img/weatherTypes/rainy.png');
   } else if (condition.indexOf('snow')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/snow.jpeg');
+    $("#weather img").attr('src','img/weatherTypes/thundershower.png');
   } else if (condition.indexOf('cloud')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/cloudy.jpeg');
+    $("#weather img").attr('src','img/weatherTypes/cloudy.png');
   } else {
-    $("#weather img").attr('src','img/weatherTypes/sunny.jpeg');
+    $("#weather img").attr('src','img/weatherTypes/sunny.png');
   }
 }
 

@@ -41,6 +41,14 @@
   /*display: none;*/
 }
 
+#brightnessBar {
+  position: absolute;
+  right: 30px;
+  top: 200px;
+  text-align: right;
+  padding: 10px;
+}
+
 #calandar{
   position: absolute;
   right: 30px;
