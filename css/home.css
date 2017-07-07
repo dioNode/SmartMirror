@@ -6,17 +6,11 @@ body {
 
 video {
   object-fit: cover;
-  transform: translateX(-25%);
+    transform: translateX(-25%) rotateY(180deg);
 }
 
 canvas {
-  transform: translateX(-25%);
-}
-
-.flip {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
+  transform: translateX(-25%) rotateY(180deg);
 }
 
 .set-deimention {
@@ -38,4 +32,6 @@ canvas {
   top: 0;
   left: 0;
   overflow: hidden;
+
+  z-index: 1;
 }
