@@ -19,12 +19,18 @@
 
   <script src="js/tracking-min.js"></script>
   <script src="js/point-detection.js"></script>
-  <script src="js/data/face-min.js"></script>
+  <script src="js/ccv.js"></script>
+  <script src="js/face.js"></script>
   <script src="js/face-detection.js"></script>
 </head>
 
 <body>
   <div class="layer-container set-deimention">
+
+
+    <div class="layer">
+      <video id="webcam_video" height="800" preload autoplay loop muted></video>
+    </div>
 
     <div class="layer">
       <canvas id="pointTrackDebug" height="800"></canvas>
@@ -34,12 +40,31 @@
       <canvas id="faceTrackDebug" height="800"></canvas>
     </div>
 
-
-    <div class="layer">
-      <video id="webcam_video" height="800" preload autoplay loop muted></video>
-    </div>
-
     <div class="layer" id="standby-screen">
+      <div class="raid-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="81mm" height="37mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+          viewbox="0 0 8100 3700" xmlns:xlink="http://www.w3.org/1999/xlink">
+         <defs>
+          <style type="text/css">
+           <![CDATA[
+            .white {fill:#FEFEFE}
+            .red {fill:#C33438}
+           ]]>
+          </style>
+         </defs>
+         <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"/>
+          <g id="_2221279186320">
+           <polygon class="red" points="3674,3109 4053,3677 5000,3677 2727,77 2727,3677 3674,3677 "/>
+           <polygon class="red" points="6327,3677 5379,3677 3106,77 4053,77 "/>
+           <polygon class="red" points="3674,3109 4053,3677 5000,3677 2727,77 2727,3677 3674,3677 "/>
+           <polygon class="red" points="6327,3677 5379,3677 3106,77 4053,77 "/>
+           <path class="white" d="M4432 77l2274 3600c994,0 1387,-806 1387,-1800 0,-994 -806,-1800 -1800,-1800l-1861 0z"/>
+           <path class="white" d="M800 2588l-726 1089 947 0 379 -568 0 568 948 0 0 -1344 0 -1857 0 -399 -948 0c-732,0 -1326,594 -1326,1327 0,517 295,965 726,1184z"/>
+         </g>
+         </g>
+        </svg>
+      </div>
     </div>
 
     <div class="layer" id="overlay-container">
@@ -54,7 +79,11 @@
       </div>
       <div class="overlay">
         <div id="weather">
+<<<<<<< HEAD
           <img src="" alt="weatherImg"/>
+=======
+          <img src="img/weatherTypes/rain.png" alt="weatherImg" />
+>>>>>>> d6b7f5c08392842175cd7cc5e7770db66445b84b
           <div id="location"></div>
           <div id="temperature"></div>
           <div id="wind"></div>
@@ -69,6 +98,7 @@
             <div class="slider round"></div>
           </label>  -->
         </div>
+      </div>
     </div>
     <dv class="overlay">
       <div id="sideBar">
