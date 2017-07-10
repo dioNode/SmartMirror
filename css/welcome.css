@@ -1,0 +1,39 @@
+body {
+  color: black;
+  background: #000000 url('../img/bg.svg');
+}
+
+h1, h2, .jumbotron p, .jumbotron a{
+	text-align: center;
+}
+
+
+h1 .img-responsive{
+	vertical-align: bottom;
+	display: inline; !important
+	max-width: 100px;
+}
+
+.container .jumbotron{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+svg .red {
+	fill: #E93438;
+}
+
+svg .white {
+	fill: #000;
+}
+
+.well{
+	margin-top: 15px;
+}
+
+.wrapper{
+	background-color: rgb(238, 238, 238);
+	border-radius: 6px;
+	margin: 10px auto;
+	padding: 0 15px;
+}
