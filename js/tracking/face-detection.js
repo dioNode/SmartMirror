@@ -4,54 +4,7 @@ var inStandby;
 var leTimeout;
 
 function initialiseFaceDetection() {
-  /*var video = document.getElementById('webcam_video');
-  var canvas = document.getElementById('faceTrackDebug');
-  var context = canvas.getContext('2d');
-
-
-  var tracker = new tracking.ObjectTracker('face');
-
-  tracker.setInitialScale(4);
-  tracker.setStepSize(2);
-  tracker.setEdgesDensity(0.1);
-
-  tracking.track('#webcam_video', tracker, {
-    camera: true
-  });
-
-  console.log("Registered face tracker.");
-
-  $('#webcam_video').bind("loadedmetadata", function() {
-    canvas.width = video.scrollWidth;
-    canvas.height = video.scrollHeight;
-  });
-
-
-  tracker.on('track', function(event) {
-    context.clearRect(0, 0, video.scrollWidth, video.scrollHeight);
-    if (event.data.length === 0) {
-      if (faceExists) {
-        console.log('No face detected.');
-        faceExists = false;
-        leTimeout = setTimeout(doStandby, 10000);
-      }
-    }
-
-    event.data.forEach(function(rect) {
-      if (!faceExists) {
-        console.log('Face detected.');
-        faceExists = true;
-        clearTimeout(leTimeout);
-        if (inStandby) {
-          wakeMirror();
-          inStandby = false;
-        }
-      }
-      context.strokeStyle = '#a64ceb';
-      context.strokeRect(rect.x, rect.y, rect.width, rect.height);
-    });
-  });*/
-  initialize();
+  initialise();
 }
 
 
@@ -60,18 +13,19 @@ function initialiseFaceDetection() {
 var localVideo;
 var localCanvas;
 
-initialize = function() {
+initialise = function() {
   localVideo = document.getElementById("webcam_video");
   localCanvas = document.getElementById("faceTrackDebug");
-  try {
-    navigator.getUserMedia({
-      video: true
-    }, onGotStream, onFailedStream);
-    //trace("Requested access to local media");
-  } catch (e) {
-    alert("getUserMedia error " + e);
-    //trace_e(e, "getUserMedia error");
-  }
+  setTimeout(poll, 2000);
+  // try {
+  //   navigator.getUserMedia({
+  //     video: true
+  //   }, onGotStream, onFailedStream);
+  //   //trace("Requested access to local media");
+  // } catch (e) {
+  //   alert("getUserMedia error " + e);
+  //   //trace_e(e, "getUserMedia error");
+  // }
 };
 
 poll = function() {
@@ -149,16 +103,6 @@ poll = function() {
       }
     }
   }
-};
-
-
-onGotStream = function(stream) {
-  localVideo.style.opacity = 1;
-  localVideo.srcObject = stream;
-  localStream = stream;
-
-  //trace("User has granted access to local media. url = " + url);
-  setTimeout(poll, 2000);
 };
 
 onFailedStream = function(error) {

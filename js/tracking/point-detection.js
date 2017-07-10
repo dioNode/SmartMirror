@@ -3,6 +3,8 @@ var gestureVelocity = [0, 0];
 
 var POSITION_LENGTH = 15;
 
+var positionCorrection;
+
 function initialisePointDetection() {
   var video = document.getElementById('webcam_video');
   var canvas = document.getElementById('pointTrackDebug');
@@ -31,6 +33,7 @@ function initialisePointDetection() {
   $('#webcam_video').bind("loadedmetadata", function() {
     canvas.width = video.scrollWidth;
     canvas.height = video.scrollHeight;
+    positionCorrection = 500 + ((video.scrollWidth - 500) / 2) + 20;
   });
 
   tracker.on('track', function(event) {
@@ -45,6 +48,7 @@ function initialisePointDetection() {
       previousPositions = [];
     }
   });
+
 }
 
 function newPosition(xPos, yPos) {
@@ -91,4 +95,30 @@ setInterval(function() {
   ctx3.lineTo(50, 50 + gestureVelocity[1] * 2);
   ctx3.stroke();
   ctx3.closePath();
-}, 500);
+
+  if (getPosition() != null) {
+    checkUI();
+  }
+}, 100);
+
+
+function getVelocity() {
+  return gestureVelocity;
+}
+
+function getVelocityX() {
+  return getVelocity()[0];
+}
+
+function getVelocityY() {
+  return getVelocity()[1];
+}
+
+function getPosition() {
+  if (previousPositions.length == 0) {
+    return null;
+  } else {
+    var pos = previousPositions[previousPositions.length - 1];
+    return [positionCorrection - pos[0], pos[1]];
+  }
+}
