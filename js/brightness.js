@@ -1,55 +1,80 @@
 function moveBrightness(dir){
 
-  brightness = $("#overlay-container").css("background-color");
-  console.log(brightness);
+  newBrightness = getBrightness();
 
-  numIntervals = 5;
+  numIntervals = 10;
   maxBrightness = 1;
   minBrightness = 0;
   jumpIntervals = (maxBrightness-minBrightness)/numIntervals;
 
-  brightness += dir * jumpIntervals;
+  newBrightness += dir * jumpIntervals;
 
-  if (brightness > maxBrightness){
-    brightness = maxBrightness;
-  } else if (brightness < minBrightness){
-    brightness = minBrightness;
+  if (newBrightness > maxBrightness){
+    newBrightness = maxBrightness;
+  } else if (newBrightness < minBrightness){
+    newBrightness = minBrightness;
   }
 
+  newOpacity = calculateOpacity(newBrightness);
+
+
+
+  textOpacity = calculateTextOpacity(newBrightness);
+
+  backgroundColorStr = "rgba(0,0,0,"+ newOpacity +")";
+  $("#overlay-container").css("background-color", backgroundColorStr);
+  $("#overlay-container div").css("opacity",textOpacity);
+
+  runAnimation(newBrightness);
+}
+
+function runAnimation(brightness) {
+  movement = setSliderOffset(brightness) + "px";
   $("#brightnessBar .slider").animate({
     top : movement
   });
 
-  /*minPos = $("#brightnessBar").offset().top;
-  sliderPos = $("#brightnessBar .slider").offset().top;
-  maxBrightness = $("#brightnessBar").offset().top+$("#brightnessBar").height();
-  maxBrightness -= $("#brightnessBar .slider").height();
-  percentBrightness = (sliderPos-minPos) / maxBrightness;*/
+}
 
+function setSliderOffset(brightness){
+  // Returns amount of px needed to move
+  slider = $("#brightnessBar .slider");
+  bar = $("#brightnessBar");
+  sliderHeight = $(slider).height();
+  sliderPos = $(slider).offset().top;
+  barHeight = $(bar).height();
+  barPos = $(bar).offset().top;
 
-  console.log(percentBrightness, sliderPos - minPos);
+  desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
 
-  /*if (percentBrightness < 0){
-    console.log("over");
-    percentBrightness = 0;
-    $("#brightnessBar .slider").animate({
-      top: minPos
-    });
-  } else if (percentBrightness>1) {
-    console.log("under");
-    percentBrightness = 1;
-    $("#brightnessBar .slider").animate({
-      top: maxBrightness
-    });
-  }*/
+  movement = desiredPos - sliderPos;
+  //$(slider).offset({top: desiredPos});
+  return desiredPos - barPos;
 
-  return newBrightness;
-
-  //$("#overlay-container").css('opacity', 1-percentBrightness);
 }
 
 function calculateOpacity(brightness) {
   maxOpacity = 0;
   minOpacity = 0.9;
-  return (1-brightness)*(minOpacity-maxOpacity);
+  opacity = (1-brightness)*(minOpacity-maxOpacity);
+  return opacity;
+}
+
+function calculateTextOpacity(brightness){
+  minOpacity = 0.6;
+  maxOpacity = 1;
+  opacity = (maxOpacity-minOpacity)*brightness + minOpacity;
+  return opacity;
+}
+
+function calculateBrightness(opacity) {
+  maxOpacity = 0;
+  minOpacity = 0.9;
+  return 1-opacity/(minOpacity-maxOpacity);
+}
+
+function getBrightness() {
+  backgroundColour = $("#overlay-container").css("background-color");
+  opacity = backgroundColour.split(",")[3].trim().replace(")","");
+  return calculateBrightness(parseFloat(opacity));
 }
