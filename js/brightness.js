@@ -1,4 +1,60 @@
+$(document).ready(function(){
+  /*$( "#brightnessBar").hover(
+    function() {
+      opacity = calculateTextOpacity(calculateBrightness());
+      $(this).animate({opacity: 1},500);
+    }, function() {
+      $( this ).animate({opacity: 0.2}, 500);
+    }
+  );*/
+})
+
+
+function toggleBrightness() {
+  if ($("#brightnessFace").is(":visible")){
+    collapseBrightness();
+  } else {
+    initiateBrightness();
+  }
+}
+
+function initiateBrightness() {
+  bar = $("#brightnessFace");
+  topPos = $("#brightnessBar .slider").css("top");
+  $(bar).css("top",topPos);
+  $(bar).show();
+  maxHeight = $("#brightnessBar").height() + "px";
+  $(bar).animate({
+    height:maxHeight,
+    top: "0px",
+  },500).animate({
+    width:"5px"
+  },500);
+  animateRotate($("#brightnessBar .slider"),360);
+}
+
+function collapseBrightness() {
+  bar = $("#brightnessFace");
+  topPos = $("#brightnessBar .slider").css("top");
+  $(bar).animate({
+    top: topPos,
+    height: "0px"
+  }, {
+    duration: 500,
+    complete: function() {
+      $(bar).css("width","1px");
+      $(bar).hide();
+    }
+  });
+  animateRotate($("#brightnessBar .slider"),-360);
+}
+
 function moveBrightness(dir){
+
+  //check div available
+  if (!$("#brightnessFace").is(":visible")){
+    return;
+  }
 
   newBrightness = getBrightness();
 
@@ -16,9 +72,6 @@ function moveBrightness(dir){
   }
 
   newOpacity = calculateOpacity(newBrightness);
-
-
-
   textOpacity = calculateTextOpacity(newBrightness);
 
   backgroundColorStr = "rgba(0,0,0,"+ newOpacity +")";
@@ -77,4 +130,20 @@ function getBrightness() {
   backgroundColour = $("#overlay-container").css("background-color");
   opacity = backgroundColour.split(",")[3].trim().replace(")","");
   return calculateBrightness(parseFloat(opacity));
+}
+
+function animateRotate(myDiv,d) {
+  $({deg: 0}).animate(
+    {deg: d,
+    }, {
+        duration: 1000,
+        step: function(now) {
+            // in the step-callback (that is fired each step of the animation),
+            // you can use the `now` paramter which contains the current
+            // animation-position (`0` up to `angle`)
+            $(myDiv).css({
+                transform: 'rotate(' + now + 'deg)',
+            });
+        }
+    });
 }

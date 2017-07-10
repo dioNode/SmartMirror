@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="css/sideBar.css" type="text/css" />
   <link rel="stylesheet" href="css/brightness.css" type="text/css" />
   <link rel="stylesheet" href="css/standby.css" type="text/css" />
+
   <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jqfloat-master/jqfloat.js"></script>
+
   <script src="js/webcam_mirror.js"></script>
   <script src="js/swipe_overlays.js"></script>
   <script src="js/weather/jquery.simpleWeather.js"></script>
@@ -101,17 +104,18 @@
         </div>
 
         <div id="brightnessBar">
-          <div class="slider" onmousedown="mouseBrightness()"></div>
+          <div id="brightnessFace"></div>
+          <img src="img/brightness.png" class="slider" onclick="toggleBrightness()"/>
         </div>
 
-        <div id="calandar">
+        <!-- <div id="calandar">
 
-          <!-- Rounded switch
+          Rounded switch
           <label class="switch">
             <input type="checkbox">
             <div class="slider round"></div>
-          </label>  -->
-        </div>
+          </label>
+        </div> -->
       </div>
     </div>
   </div>
