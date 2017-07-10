@@ -23,16 +23,16 @@ function moveBrightness(dir){
 
   backgroundColorStr = "rgba(0,0,0,"+ newOpacity +")";
   $("#overlay-container").css("background-color", backgroundColorStr);
-  $("#overlay-container div").css("opacity",textOpacity);
+  $("#overlay-container div:not(#fadedBackgroundTime)").css("opacity",textOpacity);
 
   runAnimation(newBrightness);
 }
 
 function runAnimation(brightness) {
   movement = setSliderOffset(brightness) + "px";
-  $("#brightnessBar .slider").animate({
-    top : movement
-  });
+  // $("#brightnessBar .slider").animate({
+  //   top : movement
+  // });
 
 }
 
@@ -48,7 +48,7 @@ function setSliderOffset(brightness){
   desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
 
   movement = desiredPos - sliderPos;
-  //$(slider).offset({top: desiredPos});
+  $(slider).offset({top: desiredPos});
   return desiredPos - barPos;
 
 }
