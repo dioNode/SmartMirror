@@ -12,12 +12,14 @@ $(document).ready(function() {
 
   function handleVideo(stream) {
     video.src = window.URL.createObjectURL(stream);
+
+
+    initialisePointDetection();
+    //initialiseFaceDetection();
+    initialiseUI();
   }
 
   function videoError(e) {
     // do something
   }
-
-  initialisePointDetection();
-  initialiseFaceDetection();
 });
