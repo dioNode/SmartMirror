@@ -1,5 +1,5 @@
 var overlayObject;
-var TOLERANCE = 10;
+var TOLERANCE = 50;
 var registeredObjects = [];
 
 function regObject(jqObject, time) {
@@ -45,6 +45,8 @@ function checkUI() {
     if (isInBounds(registeredObjects[i])) {
       if (registeredObjects[i].presstime == null && !registeredObjects[i].pressed) {
         registeredObjects[i].presstime = new Date();
+      } else if (registeredObjects[i].pressed) {
+        registeredObjects[i].obj.trigger('slide');
       } else {
         if (Math.floor((new Date() - registeredObjects[i].time)/60) < registeredObjects[i].presstime) {
           registeredObjects[i].obj.trigger('press');
@@ -54,6 +56,7 @@ function checkUI() {
       }
     } else {
       if (registeredObjects[i].pressed) {
+        registeredObjects[i].obj.trigger('depress');
         registeredObjects[i].pressed = false;
       }
 

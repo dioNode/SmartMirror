@@ -7,7 +7,11 @@ $(document).ready(function(){
       $( this ).animate({opacity: 0.2}, 500);
     }
   );*/
-})
+
+  $(".slider").on('press', initiateBrightness);
+  $(".slider").on('slide', slideBrightness);
+  $(".slider").on('depress', collapseBrightness);
+});
 
 
 function toggleBrightness() {
@@ -47,6 +51,36 @@ function collapseBrightness() {
     }
   });
   animateRotate($("#brightnessBar .slider"),-360);
+}
+
+function slideBrightness() {
+  var slider = $("#brightnessBar .slider");
+  var bar = $("#brightnessBar");
+  var sliderHeight = $(slider).height();
+  var sliderPos = $(slider).offset().top;
+  var barHeight = $(bar).height();
+  var barPos = $(bar).offset().top;
+  var desiredPos = getPosition()[1] + 30;
+
+
+  var brightness = 1 - ((desiredPos - barPos) / (barHeight - sliderHeight));
+
+  if (brightness > 1) {
+    brightness = 1;
+    desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  } else if (brightness < 0) {
+    brightness = 0;
+    desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  }
+  $(slider).offset({top: desiredPos});
+
+
+  newOpacity = calculateOpacity(brightness);
+  textOpacity = calculateTextOpacity(brightness);
+
+  backgroundColorStr = "rgba(0,0,0,"+ newOpacity +")";
+  $("#overlay-container").css("background-color", backgroundColorStr);
+  $("#overlay-container div:not(#fadedBackgroundTime)").css("opacity",textOpacity);
 }
 
 function moveBrightness(dir){
@@ -90,7 +124,6 @@ function runAnimation(brightness) {
 }
 
 function setSliderOffset(brightness){
-  // Returns amount of px needed to move
   slider = $("#brightnessBar .slider");
   bar = $("#brightnessBar");
   sliderHeight = $(slider).height();
@@ -98,7 +131,8 @@ function setSliderOffset(brightness){
   barHeight = $(bar).height();
   barPos = $(bar).offset().top;
 
-  desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  //desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  desiredPos = getPosition[1] - sliderPos;
 
   movement = desiredPos - sliderPos;
   $(slider).offset({top: desiredPos});
