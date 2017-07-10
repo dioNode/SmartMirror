@@ -8,10 +8,10 @@ function regObject(jqObject, time) {
   this.time = time;
   this.pressed = false;
   this.presstime = null;
-  this.x = pos[0];
-  this.y = pos[1];
-  this.width = jqObject[0].scrollWidth;
-  this.height = jqObject[0].scrollHeight;
+  this.x = function() {return getObjPosition(jqObject)[0];};
+  this.y = function() {return getObjPosition(jqObject)[1];};
+  this.width = function() {return this.obj[0].scrollWidth;};
+  this.height = function() {return this.obj[0].scrollHeight;};
 }
 
 function registerObject(jqObject, time) {
@@ -20,8 +20,8 @@ function registerObject(jqObject, time) {
 
 function isInBounds(regobject) {
   var position = getPosition();
-  if (position[0] > regobject.x - TOLERANCE && position[0] < regobject.x + regobject.width + TOLERANCE &&
-    position[1] > regobject.y - TOLERANCE && position[1] < regobject.y + regobject.height + TOLERANCE) {
+  if (position[0] > regobject.x() - TOLERANCE && position[0] < regobject.x() + regobject.width() + TOLERANCE &&
+    position[1] > regobject.y() - TOLERANCE && position[1] < regobject.y() + regobject.height() + TOLERANCE) {
     return true;
   }
   return false;
