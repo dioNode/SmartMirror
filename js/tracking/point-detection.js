@@ -49,6 +49,31 @@ function initialisePointDetection() {
     }
   });
 
+
+  testCanvas = document.getElementById("movementCanvas");
+  ctx3 = testCanvas.getContext("2d");
+
+
+  setInterval(function() {
+    ctx3.clearRect(0, 0, 10000, 10000);
+    ctx3.strokeStyle = "#88FF88";
+
+    ctx3.beginPath();
+    ctx3.moveTo(50, 50);
+    ctx3.lineTo(50 + gestureVelocity[0] * 2, 50);
+    ctx3.stroke();
+    ctx3.closePath();
+
+    ctx3.beginPath();
+    ctx3.moveTo(50, 50);
+    ctx3.lineTo(50, 50 + gestureVelocity[1] * 2);
+    ctx3.stroke();
+    ctx3.closePath();
+
+    if (getPosition() != null) {
+      checkUI();
+    }
+  }, 100);
 }
 
 function newPosition(xPos, yPos) {
@@ -74,32 +99,6 @@ function caluclateVelocity() {
 
 
 }
-
-$(document).ready(function() {
-  testCanvas = document.getElementById("movementCanvas");
-  ctx3 = testCanvas.getContext("2d");
-});
-
-setInterval(function() {
-  ctx3.clearRect(0, 0, 10000, 10000);
-  ctx3.strokeStyle = "#88FF88";
-
-  ctx3.beginPath();
-  ctx3.moveTo(50, 50);
-  ctx3.lineTo(50 + gestureVelocity[0] * 2, 50);
-  ctx3.stroke();
-  ctx3.closePath();
-
-  ctx3.beginPath();
-  ctx3.moveTo(50, 50);
-  ctx3.lineTo(50, 50 + gestureVelocity[1] * 2);
-  ctx3.stroke();
-  ctx3.closePath();
-
-  if (getPosition() != null) {
-    checkUI();
-  }
-}, 100);
 
 
 function getVelocity() {
