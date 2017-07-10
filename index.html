@@ -6,19 +6,23 @@
   <link rel="stylesheet" href="css/home.css" type="text/css" />
   <link rel="stylesheet" href="css/overlays.css" type="text/css" />
   <link rel="stylesheet" href="css/weather.css" type="text/css" />
-  <link rel="stylesheet" href="css/slider.css" type="text/css" />
+  <link rel="stylesheet" href="css/jellyAnimate.css" type="text/css" />
+  <link rel="stylesheet" href="css/sideBar.css" type="text/css" />
+  <link rel="stylesheet" href="css/brightness.css" type="text/css" />
   <link rel="stylesheet" href="css/standby.css" type="text/css" />
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/webcam_mirror.js"></script>
   <script src="js/swipe_overlays.js"></script>
   <script src="js/weather/jquery.simpleWeather.js"></script>
   <script src="js/weather/weather.js"></script>
+  <script src="js/brightness.js"></script>
+  <script src="js/sideBar.js"></script>
 
-  <script src="js/tracking-min.js"></script>
-  <script src="js/point-detection.js"></script>
-  <script src="js/ccv.js"></script>
-  <script src="js/face.js"></script>
-  <script src="js/face-detection.js"></script>
+  <script src="js/tracking/tracking-min.js"></script>
+  <script src="js/tracking/point-detection.js"></script>
+  <script src="js/tracking/ccv.js"></script>
+  <script src="js/tracking/face.js"></script>
+  <script src="js/tracking/face-detection.js"></script>
 </head>
 
 <body>
@@ -43,10 +47,8 @@
           viewbox="0 0 8100 3700" xmlns:xlink="http://www.w3.org/1999/xlink">
          <defs>
           <style type="text/css">
-           <![CDATA[
             .white {fill:#FEFEFE}
             .red {fill:#C33438}
-           ]]>
           </style>
          </defs>
          <g id="Layer_x0020_1">
@@ -66,35 +68,56 @@
 
     <div class="layer" id="overlay-container">
       <div class="overlay">
+
         <div id="dateTime">
           <div id="time">00:00</div>
           <div id="date">day/month year day</div>
         </div>
+
         <div id="fadedBackgroundTime">
           <div id="backgroundTime">88:88</div>
         </div>
-      </div>
-      <div class="overlay">
+
         <div id="weather">
-          <img src="img/weatherTypes/rain.png" alt="weatherImg" />
+          <img alt="weatherImg" />
           <div id="location"></div>
           <div id="temperature"></div>
           <div id="wind"></div>
         </div>
-      </div>
-      <div class="overlay">
+
+        <div id="sideBar">
+          <div class="blobBtn">
+            <p>First task</p>
+          </div>
+          <div class="blobBtn">
+            <p>Next</p>
+          </div>
+          <div class="blobBtn">
+            <p>A bunch of things to do</p>
+          </div>
+          <div class="blobBtn">
+            <p>Last one</p>
+          </div>
+        </div>
+
+        <div id="brightnessBar">
+          <div class="slider" onmousedown="mouseBrightness()"></div>
+        </div>
+
         <div id="calandar">
 
-          <!-- Rounded switch -->
+          <!-- Rounded switch
           <label class="switch">
             <input type="checkbox">
             <div class="slider round"></div>
-          </label>
+          </label>  -->
         </div>
       </div>
     </div>
   </div>
-
+  <div class="debugCanvas" style="position: absolute; top:30px; left:30px;">
+    <canvas id="movementCanvas" width="100px" height="100px"></canvas>
+  </div>
 </body>
 
 </html>

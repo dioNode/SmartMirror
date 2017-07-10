@@ -1,0 +1,17 @@
+#brightnessBar {
+  border: 1px white solid;
+  width: 20px;
+  height: 400px;
+  padding: 0;
+}
+
+#brightnessBar .slider {
+  position: absolute;
+  left: 0px;
+  width: inherit;
+  height: 20px;
+  top: 10px;
+  background-color: #9fdcf4;
+  margin: 0;
+  padding: 0;
+}

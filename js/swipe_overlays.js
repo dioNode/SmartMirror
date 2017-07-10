@@ -2,15 +2,30 @@ $(document).ready(function(){
   updateTime();
   var t=setInterval(update,1000);
 
-  $(window).keyup(function (e) {
-    var key = e.which;
-    if(key == 13 || key == 39) {
-      console.log('right');
-      //nextOverlay();
-    } else if(key == 37) { // left arrow
-      console.log('left');
-      //prevOverlay();
+  if (document.readyState === "complete"){
+    console.log("ready");
+    initiateFades();
+  }
+
+  $(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        break;
+
+        case 38: // up
+          moveBrightness(1);
+        break;
+
+        case 39: // right
+        break;
+
+        case 40: // down
+          moveBrightness(-1);
+        break;
+
+        default: return; // exit this handler for other keys
     }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
   });
 })
 
@@ -19,6 +34,10 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 
 var dayNames = ["Sun","Mon", "Tues", "Wed", "Thurs","Fri","Sat"];
+
+function initiateFades(){
+  $('#dateTime').fadeIn(2000);
+}
 
 function nextOverlay(){
   currentOverlay = $('#chosenOverlay');

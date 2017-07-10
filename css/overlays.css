@@ -16,7 +16,10 @@
   top: 10px;
   text-align: left;
   padding: 10px;
+}
 
+#dateTime {
+  display: none;
 }
 
 #time, #backgroundTime {
@@ -33,6 +36,15 @@
   position: absolute;
   right: 30px;
   top: 10px;
+  text-align: right;
+  padding: 10px;
+  /*display: none;*/
+}
+
+#brightnessBar {
+  position: absolute;
+  right: 30px;
+  top: 200px;
   text-align: right;
   padding: 10px;
 }
