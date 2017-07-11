@@ -1,5 +1,5 @@
 var overlayObject;
-var TOLERANCE = 50;
+var TOLERANCE = 10;
 var registeredObjects = [];
 
 function regObject(jqObject, time) {
