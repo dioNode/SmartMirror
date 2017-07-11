@@ -5,7 +5,7 @@ $(document).ready(function(){
     speed: 5000
   }).jqFloat('stop');
 
-  $("#messsageBox").on('press',toggleBubbles);
+  $("#messageBox").on('click',toggleBubbles);
 
   var bubbleRadius = $(".blobBtn").height();
   var enlargedHeight = bubbleRadius + 5;
