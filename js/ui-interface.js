@@ -48,7 +48,7 @@ function checkUI() {
       } else if (registeredObjects[i].pressed) {
         registeredObjects[i].obj.trigger('slide');
       } else {
-        if (Math.floor((new Date() - registeredObjects[i].time)/60) < registeredObjects[i].presstime) {
+        if (new Date() - registeredObjects[i].presstime > registeredObjects[i].time) {
           registeredObjects[i].obj.trigger('press');
           registeredObjects[i].pressed = true;
           registeredObjects[i].presstime = null;
