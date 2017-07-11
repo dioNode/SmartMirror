@@ -1,10 +1,12 @@
+var bubbleOn = true;
+
 $(document).ready(function(){
   $(".blobBtn").jqFloat({
-    width: 10,
-    height: 200,
-    speed: 5000
-  }).jqFloat('stop');
-
+    width: 70,
+    height: 300,
+    speed: 4000,
+    minHeight: -200
+  });
   $("#messageBox").on('click',toggleBubbles);
 
   var bubbleRadius = $(".blobBtn").height();
@@ -32,12 +34,14 @@ $(document).ready(function(){
 });
 
 function toggleBubbles() {
-  console.log("working");
-  if ($("#messageBox").is(":visible")){
-    $(".blobBtn").jqFloat('stop');
 
+  $(".blobBtn").css("position","relative");
+  if (bubbleOn){
+    $(".blobBtn").jqFloat('stop');
+    console.log('stopping');
   } else {
-    $(".blobBtn").fadeIn();
-    $(".blobBtn").jqFloat('start');
+    console.log('starting');
+    $(".blobBtn").jqFloat('play');
   }
+  bubbleOn = !bubbleOn;
 }
