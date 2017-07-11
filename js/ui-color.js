@@ -29,6 +29,7 @@ function changeColorRed() {
   $(".overlay").css("color", RED);
   $("#brightnessBar").css("border-color", RED);
   $("#brightnessFace").css("background-color", RED);
+  update_greeting_color(RED);
 }
 
 function changeColorGreen() {
@@ -42,6 +43,7 @@ function changeColorGreen() {
   $(".overlay").css("color", GREEN);
   $("#brightnessBar").css("border-color", GREEN);
   $("#brightnessFace").css("background-color", GREEN);
+  update_greeting_color(GREEN);
 }
 
 function changeColorOrange() {
@@ -55,6 +57,7 @@ function changeColorOrange() {
   $(".overlay").css("color", ORANGE);
   $("#brightnessBar").css("border-color", ORANGE);
   $("#brightnessFace").css("background-color", ORANGE);
+  update_greeting_color(ORANGE);
 }
 
 function changeColorBlue() {
@@ -68,4 +71,5 @@ function changeColorBlue() {
   $(".overlay").css("color", BLUE);
   $("#brightnessBar").css("border-color", BLUE);
   $("#brightnessFace").css("background-color", BLUE);
+  update_greeting_color(BLUE);
 }
