@@ -9,8 +9,8 @@ $(document).ready(function(){
     minHeight: -200
   });
   $("#messageBox").on('press',toggleBubbles);
-  $(".blobBtn").on('press',openBubble);
-  $(".blobBtn").on('depress',closeBubble);
+  $(".blobBtn").on('press',openBubble(this));
+  $(".blobBtn").on('depress',closeBubble(this));
 
   bubbleRadius = $(".blobBtn").height();
 
