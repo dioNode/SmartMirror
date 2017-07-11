@@ -5,6 +5,11 @@
   text-align: left;
 }
 
+#messageBox {
+  position: absolute;
+  width: 60px;
+}
+
 .blobBtn {
   margin: 20px;
   width: 40px;
@@ -12,7 +17,8 @@
   border-radius: 20px;
   background-color: #9fdcf4;
   opacity: 0.5;
-  position: relative;
+  position: absolute;
+  display: none;
 }
 
 .blobBtn p {
