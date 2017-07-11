@@ -6,6 +6,10 @@
   margin: 10px;
 }
 
+#welcome {
+  pointer-events: none;
+}
+
 #chosenOverlay {
   display: block;
 }
