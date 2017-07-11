@@ -7,7 +7,19 @@
 }
 
 #welcome {
+  position: relative;
+  width: 100%;
   pointer-events: none;
+  top: 550px;
+  margin: auto;
+  display: none;
+}
+
+#welcome p{
+  text-align: center;
+  font-size: 30px;
+  padding: 0 60px;
+  margin: 0;
 }
 
 #chosenOverlay {
