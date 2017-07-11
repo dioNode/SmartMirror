@@ -1,4 +1,5 @@
 var bubbleOn = true;
+var bubbleRadius;
 
 $(document).ready(function(){
   $(".blobBtn").jqFloat({
@@ -7,31 +8,42 @@ $(document).ready(function(){
     speed: 4000,
     minHeight: -200
   });
-  $("#messageBox").on('click',toggleBubbles);
+  $("#messageBox").on('press',toggleBubbles);
+  $(".blobBtn").on('press',openBubble);
+  $(".blobBtn").on('depress',closeBubble);
 
-  var bubbleRadius = $(".blobBtn").height();
-  var enlargedHeight = bubbleRadius + 5;
+  bubbleRadius = $(".blobBtn").height();
 
   $( ".blobBtn" ).hover(
     function() {
-      textWidth = $(this).children().outerWidth(true)+20;
-      enlargedWidth = bubbleRadius + textWidth;
-      $(this).animate({
-        opacity: 0.8,
-        width: enlargedWidth,
-        height: enlargedHeight
-      }, 500)
-      $(this).children().show();
+      openBubble(this);
     }, function() {
-      $(this).animate({
-        opacity: 0.8,
-        width: bubbleRadius,
-        height: bubbleRadius
-      }, 200)
-      $(this).children().hide();
+      closeBubble(this);
     }
   );
 });
+
+function openBubble(bubble){
+  var enlargedHeight = bubbleRadius + 5;
+  $(bubble).children().show();
+  textWidth = $(bubble).children().outerWidth(true);
+  enlargedHeight = $(bubble).children().outerHeight(true);
+  enlargedWidth = bubbleRadius + textWidth;
+  $(bubble).animate({
+    opacity: 0.8,
+    width: enlargedWidth,
+    height: enlargedHeight
+  }, 500);
+}
+
+function closeBubble(bubble){
+  $(bubble).animate({
+    opacity: 0.8,
+    width: bubbleRadius,
+    height: bubbleRadius
+  }, 200)
+  $(bubble).children().hide();
+}
 
 function toggleBubbles() {
 
