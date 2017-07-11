@@ -3,7 +3,7 @@ $( document ).ready(function() {
 	console.log(localStorage["surname"]);
 });
 
-$('#localStorage').submit(function() {
+$('#submit-btn').click(function() {
 	localStorage["name"] = $('#name').val();
 	localStorage["surname"] = $('#surname').val();
 });
