@@ -8,6 +8,8 @@
 #messageBox {
   position: absolute;
   width: 60px;
+  left: 10px;
+  top: 10px;
 }
 
 .blobBtn {
@@ -18,7 +20,6 @@
   background-color: #9fdcf4;
   opacity: 0.5;
   position: absolute;
-  display: none;
 }
 
 .blobBtn p {

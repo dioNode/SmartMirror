@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="css/sideBar.css" type="text/css" />
   <link rel="stylesheet" href="css/brightness.css" type="text/css" />
   <link rel="stylesheet" href="css/standby.css" type="text/css" />
+  <link rel="stylesheet" href="css/uicolor.css" type="text/css" />
 
   <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/jqfloat-master/jqfloat.js"></script>
+  <script src="js/jqfloat.min.js"></script>
 
   <script src="js/webcam_mirror.js"></script>
   <script src="js/swipe_overlays.js"></script>
@@ -30,6 +31,7 @@
 
   <script src="js/ui-interface.js"></script>
   <script src="js/mirror-ui.js"></script>
+  <script src="js/ui-color.js"></script>
 </head>
 
 <body>
@@ -93,24 +95,52 @@
         </div><!--weather-->
 
         <div id="sideBar">
+          <div id="bubbleContainer">
+            <div class="blobBtn">
+              <p>First task</p>
+            </div><!--blobBtn-->
+            <div class="blobBtn">
+              <p>Next</p>
+            </div><!--blobBtn-->
+            <div class="blobBtn">
+              <p>A bunch of things to do</p>
+            </div><!--blobBtn-->
+            <div class="blobBtn">
+              <p>Last one</p>
+            </div><!--blobBtn-->
+          </div>
           <img id="messageBox" src="img/message icon.png"/>
-          <div class="blobBtn">
-            <p>First task</p>
-          </div><!--blobBtn-->
-          <div class="blobBtn">
-            <p>Next</p>
-          </div><!--blobBtn-->
-          <div class="blobBtn">
-            <p>A bunch of things to do</p>
-          </div><!--blobBtn-->
-          <div class="blobBtn">
-            <p>Last one</p>
-          </div><!--blobBtn-->
         </div><!--sideBar-->
 
         <div id="brightnessBar">
           <div id="brightnessFace"></div>
           <img src="img/bright_2.png" class="slider" />
+        </div>
+
+        <div id="uiColorChange">
+          <div class="blobBtnStatic colorMenuButton" id="colorChangeButton">
+
+
+          </div>
+          <div class="blobBtnStatic lighter colorMenuButton">
+
+          </div>
+
+            <div class="blobBtnStatic colorRedBtn colorBtn">
+
+            </div>
+
+            <div class="blobBtnStatic colorGreenBtn colorBtn">
+
+            </div>
+
+            <div class="blobBtnStatic colorOrangeBtn colorBtn">
+
+            </div>
+
+            <div class="blobBtnStatic colorBlueBtn colorBtn">
+
+            </div>
         </div>
         <!-- <div id="calandar">
 

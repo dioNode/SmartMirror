@@ -1,0 +1,44 @@
+#uiColorChange {
+  position: absolute;
+  left: 10px;
+  top: 730px;
+  text-align: left;
+}
+
+.lighter {
+  opacity: 0.6;
+  -webkit-clip-path: polygon(40px 40px, 40px 0, 0 40px);
+}
+
+.colorBtn {
+  display: none;
+}
+
+.blobBtnStatic {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #9fdcf4;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.colorRedBtn {
+  background-color: #ff9696;
+  left: 50px;
+}
+
+.colorGreenBtn {
+  background-color: #96ff96;
+  left: 100px;
+}
+
+.colorOrangeBtn {
+  background-color: #ffc896;
+  left: 150px;
+}
+
+.colorBlueBtn {
+  background-color: #9fdcf4;
+  left: 200px;
+}
