@@ -33,23 +33,26 @@ function initiateBrightness() {
     top: "0px",
   },500).animate({
     width:"5px"
-  },500);
+  }, 500);
   animateRotate($("#brightnessBar .slider"),360);
+  $("#brightnessBar .slider").attr('src','img/bright_1.png');
 }
 
 function collapseBrightness() {
   bar = $("#brightnessFace");
   topPos = $("#brightnessBar .slider").css("top");
   $(bar).animate({
+    width: "1px"
+  },500).animate({
     top: topPos,
     height: "0px"
   }, {
     duration: 500,
     complete: function() {
-      $(bar).css("width","1px");
       $(bar).hide();
     }
   });
+  $("#brightnessBar .slider").attr('src','img/bright_2.png');
   animateRotate($("#brightnessBar .slider"),-360);
 }
 

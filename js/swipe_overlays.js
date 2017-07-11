@@ -1,11 +1,7 @@
 $(document).ready(function(){
   updateTime();
   var t=setInterval(update,1000);
-
-  if (document.readyState === "complete"){
-    console.log("ready");
-    initiateFades();
-  }
+  initiateFades();
 
   $(document).keydown(function(e) {
     switch(e.which) {
