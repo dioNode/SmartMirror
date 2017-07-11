@@ -3,6 +3,8 @@ var gestureVelocity = [0, 0];
 
 var POSITION_LENGTH = 15;
 
+var positionCorrection;
+
 function initialisePointDetection() {
   var video = document.getElementById('webcam_video');
   var canvas = document.getElementById('pointTrackDebug');
@@ -31,6 +33,7 @@ function initialisePointDetection() {
   $('#webcam_video').bind("loadedmetadata", function() {
     canvas.width = video.scrollWidth;
     canvas.height = video.scrollHeight;
+    positionCorrection = 500 + ((video.scrollWidth - 500) / 2) + 20;
   });
 
   tracker.on('track', function(event) {
@@ -45,6 +48,32 @@ function initialisePointDetection() {
       previousPositions = [];
     }
   });
+
+
+  testCanvas = document.getElementById("movementCanvas");
+  ctx3 = testCanvas.getContext("2d");
+
+
+  setInterval(function() {
+    ctx3.clearRect(0, 0, 10000, 10000);
+    ctx3.strokeStyle = "#88FF88";
+
+    ctx3.beginPath();
+    ctx3.moveTo(50, 50);
+    ctx3.lineTo(50 + gestureVelocity[0] * 2, 50);
+    ctx3.stroke();
+    ctx3.closePath();
+
+    ctx3.beginPath();
+    ctx3.moveTo(50, 50);
+    ctx3.lineTo(50, 50 + gestureVelocity[1] * 2);
+    ctx3.stroke();
+    ctx3.closePath();
+
+    if (getPosition() != null) {
+      checkUI();
+    }
+  }, 100);
 }
 
 function newPosition(xPos, yPos) {
@@ -71,24 +100,24 @@ function caluclateVelocity() {
 
 }
 
-$(document).ready(function() {
-  testCanvas = document.getElementById("movementCanvas");
-  ctx3 = testCanvas.getContext("2d");
-});
 
-setInterval(function() {
-  ctx3.clearRect(0, 0, 10000, 10000);
-  ctx3.strokeStyle = "#88FF88";
+function getVelocity() {
+  return gestureVelocity;
+}
 
-  ctx3.beginPath();
-  ctx3.moveTo(50, 50);
-  ctx3.lineTo(50 + gestureVelocity[0] * 2, 50);
-  ctx3.stroke();
-  ctx3.closePath();
+function getVelocityX() {
+  return getVelocity()[0];
+}
 
-  ctx3.beginPath();
-  ctx3.moveTo(50, 50);
-  ctx3.lineTo(50, 50 + gestureVelocity[1] * 2);
-  ctx3.stroke();
-  ctx3.closePath();
-}, 500);
+function getVelocityY() {
+  return getVelocity()[1];
+}
+
+function getPosition() {
+  if (previousPositions.length == 0) {
+    return null;
+  } else {
+    var pos = previousPositions[previousPositions.length - 1];
+    return [positionCorrection - pos[0], pos[1]];
+  }
+}

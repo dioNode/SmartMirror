@@ -1,4 +1,9 @@
 $(document).ready(function(){
+  $(".blobBtn").jqFloat({
+    width: 10,
+    height: 200,
+    speed: 5000
+  });
   $( ".blobBtn" ).hover(
     function() {
       textWidth = $(this).children().outerWidth(true)+20;

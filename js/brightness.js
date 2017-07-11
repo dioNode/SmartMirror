@@ -1,4 +1,94 @@
+$(document).ready(function(){
+  /*$( "#brightnessBar").hover(
+    function() {
+      opacity = calculateTextOpacity(calculateBrightness());
+      $(this).animate({opacity: 1},500);
+    }, function() {
+      $( this ).animate({opacity: 0.2}, 500);
+    }
+  );*/
+
+  $(".slider").on('press', initiateBrightness);
+  $(".slider").on('slide', slideBrightness);
+  $(".slider").on('depress', collapseBrightness);
+});
+
+
+function toggleBrightness() {
+  if ($("#brightnessFace").is(":visible")){
+    collapseBrightness();
+  } else {
+    initiateBrightness();
+  }
+}
+
+function initiateBrightness() {
+  bar = $("#brightnessFace");
+  topPos = $("#brightnessBar .slider").css("top");
+  $(bar).css("top",topPos);
+  $(bar).show();
+  maxHeight = $("#brightnessBar").height() + "px";
+  $(bar).animate({
+    height:maxHeight,
+    top: "0px",
+  },500).animate({
+    width:"5px"
+  },500);
+  animateRotate($("#brightnessBar .slider"),360);
+}
+
+function collapseBrightness() {
+  bar = $("#brightnessFace");
+  topPos = $("#brightnessBar .slider").css("top");
+  $(bar).animate({
+    top: topPos,
+    height: "0px"
+  }, {
+    duration: 500,
+    complete: function() {
+      $(bar).css("width","1px");
+      $(bar).hide();
+    }
+  });
+  animateRotate($("#brightnessBar .slider"),-360);
+}
+
+function slideBrightness() {
+  var slider = $("#brightnessBar .slider");
+  var bar = $("#brightnessBar");
+  var sliderHeight = $(slider).height();
+  var sliderPos = $(slider).offset().top;
+  var barHeight = $(bar).height();
+  var barPos = $(bar).offset().top;
+  var desiredPos = getPosition()[1] + 30;
+
+
+  var brightness = 1 - ((desiredPos - barPos) / (barHeight - sliderHeight));
+
+  if (brightness > 1) {
+    brightness = 1;
+    desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  } else if (brightness < 0) {
+    brightness = 0;
+    desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  }
+  $(slider).offset({top: desiredPos});
+
+
+  newOpacity = calculateOpacity(brightness);
+  textOpacity = calculateTextOpacity(brightness);
+
+  backgroundColorStr = "rgba(0,0,0,"+ newOpacity +")";
+  $("#overlay-container").css("background-color", backgroundColorStr);
+  $("#overlay-container div:not(#fadedBackgroundTime)").css("opacity",textOpacity);
+}
+
 function moveBrightness(dir){
+
+  //check div available
+  if (!$("#brightnessFace").is(":visible")){
+    return;
+  }
 
   newBrightness = getBrightness();
 
@@ -16,9 +106,6 @@ function moveBrightness(dir){
   }
 
   newOpacity = calculateOpacity(newBrightness);
-
-
-
   textOpacity = calculateTextOpacity(newBrightness);
 
   backgroundColorStr = "rgba(0,0,0,"+ newOpacity +")";
@@ -37,7 +124,6 @@ function runAnimation(brightness) {
 }
 
 function setSliderOffset(brightness){
-  // Returns amount of px needed to move
   slider = $("#brightnessBar .slider");
   bar = $("#brightnessBar");
   sliderHeight = $(slider).height();
@@ -45,7 +131,8 @@ function setSliderOffset(brightness){
   barHeight = $(bar).height();
   barPos = $(bar).offset().top;
 
-  desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  //desiredPos = (1-brightness)*(barHeight-sliderHeight) + barPos;
+  desiredPos = getPosition[1] - sliderPos;
 
   movement = desiredPos - sliderPos;
   $(slider).offset({top: desiredPos});
@@ -77,4 +164,20 @@ function getBrightness() {
   backgroundColour = $("#overlay-container").css("background-color");
   opacity = backgroundColour.split(",")[3].trim().replace(")","");
   return calculateBrightness(parseFloat(opacity));
+}
+
+function animateRotate(myDiv,d) {
+  $({deg: 0}).animate(
+    {deg: d,
+    }, {
+        duration: 1000,
+        step: function(now) {
+            // in the step-callback (that is fired each step of the animation),
+            // you can use the `now` paramter which contains the current
+            // animation-position (`0` up to `angle`)
+            $(myDiv).css({
+                transform: 'rotate(' + now + 'deg)',
+            });
+        }
+    });
 }
