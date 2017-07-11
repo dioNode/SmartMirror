@@ -72,4 +72,5 @@ function changeColorBlue() {
   $("#brightnessBar").css("border-color", BLUE);
   $("#brightnessFace").css("background-color", BLUE);
   update_greeting_color(BLUE);
+  
 }
