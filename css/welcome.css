@@ -37,3 +37,51 @@ svg .white {
 	margin: 10px auto;
 	padding: 0 15px;
 }
+
+.img-thumbnail{
+	padding: 1px;
+}
+
+h3{
+	color: white;
+	margin: 10px auto;
+}
+
+.img-container{
+	margin-bottom: 25px;
+}
+
+.col-sm-4{
+	max-width: 700px;
+	margin: auto;
+}
+
+.top-margin{
+	padding-top: 50px;
+}
+
+.avatar{
+	max-width: 250px;
+	margin: auto;
+}
+
+.team-members{
+	text-align: center;
+}
+
+.team-members h4{
+	font-size: 30px;
+	margin: 20px auto 10px auto;
+}
+
+
+
+/*
+.img-thumbnail{
+	transition: all 0.2s ease 0s;
+	opacity: 0.9;
+}
+
+.img-thumbnail:hover {
+	opacity: 1;
+}*/

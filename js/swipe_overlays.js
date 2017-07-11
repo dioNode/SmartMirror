@@ -1,11 +1,7 @@
 $(document).ready(function(){
   updateTime();
   var t=setInterval(update,1000);
-
-  if (document.readyState === "complete"){
-    console.log("ready");
-    initiateFades();
-  }
+  initiateFades();
 
   $(document).keydown(function(e) {
     switch(e.which) {
@@ -27,7 +23,7 @@ $(document).ready(function(){
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
   });
-})
+});
 
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -76,7 +72,7 @@ function updateTime(){
   time = convert2Digit(hour)+":"+convert2Digit(min);
   dateString = convert2Digit(d)+" / "+m+" "+y+" "+day;
   $("#date").text(dateString);
-  $("#time").text(time)
+  $("#time").text(time);
 }
 
 function convert2Digit(num){
