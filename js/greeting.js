@@ -16,6 +16,5 @@ $(document).ready(function(){
 
 function update_greeting_color(textColor){
   $("#welcome").css("color", textColor);
-  console.log(textColor);
 }
 //test
