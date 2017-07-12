@@ -10,5 +10,8 @@ function initialiseUI() {
   registerObject($('.colorBlueBtn'), 1000);
 
   registerObject($('#messageBox'), 1000);
-  registerObject($('.blobBtn'),100)
+  for (blob in $('.blobBtn')){
+    registerObject($(blob),100);
+  }
+
 }
