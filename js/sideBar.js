@@ -9,11 +9,11 @@ $(document).ready(function(){
     minHeight: -200
   });
   $("#messageBox").on('press',toggleBubbles);
-  $(".blobBtn").on('press', function(event){
-    openBubble(event);
+  $(".blobBtn").on('press', function(){
+    openBubble($(this));
   });
-  $(".blobBtn").on('depress', function(event){
-    closeBubble(event);
+  $(".blobBtn").on('unpress', function(){
+    closeBubble($(this));
   });
 
   bubbleRadius = $(".blobBtn").height();
