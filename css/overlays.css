@@ -28,9 +28,9 @@
 
 #dateTime, #fadedBackgroundTime {
   position: absolute;
-  left: 30px;
+  right: 30px;
   top: 10px;
-  text-align: left;
+  text-align: right;
   padding: 10px;
 }
 
@@ -50,16 +50,17 @@
 
 #weather{
   position: absolute;
-  right: 30px;
+  left: 30px;
   top: 10px;
-  text-align: right;
+  text-align: left;
   padding: 10px;
+  width: 200px;
   /*display: none;*/
 }
 
 #brightnessBar {
   position: absolute;
-  right: 30px;
+  right: 40px;
   top: 200px;
   text-align: right;
   padding: 10px;

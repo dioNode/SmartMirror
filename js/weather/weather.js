@@ -16,9 +16,9 @@ function calculateWeather(currentCity, currentCountry){
     woeid: '',
     unit: 'c',
     success: function(weather) {
-      $("#location").text(weather.city);
+      $("#location").text('Location: '+weather.city);
       $("#temperature").html(weather.temp+'&deg;'+weather.units.temp);
-      $("#wind").text(weather.wind.speed+' '+weather.units.speed);
+      $("#wind").text('Wind speed: '+weather.wind.speed+' '+weather.units.speed);
       setWeatherImg(weather.currently);
 
       $("#weather").fadeIn(3000);
