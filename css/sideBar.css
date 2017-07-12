@@ -18,7 +18,7 @@
   height: 40px;
   border-radius: 20px;
   background-color: #9fdcf4;
-  opacity: 0.5;
+  opacity: 0.8;
   position: absolute;
   text-align: center;
 }
@@ -27,6 +27,7 @@
   display: none;
   color: black;
   margin: 10px;
+  max-width: 200px;
 }
 
 .blobBtn img {
