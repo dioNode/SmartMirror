@@ -15,8 +15,15 @@ function regObject(jqObject, time) {
 }
 
 function registerObject(jqObject, time) {
-  for (object in jqObject)
-  registeredObjects.push(new regObject(object, time));
+  if (jqObject.length == 0){
+    registeredObjects.push(new regObject(jqObject, time));
+  } else {
+    for (object in jqObject){
+      registeredObjects.push(new regObject(object, time));
+    }
+  }
+
+
   //registeredObjects.push(new regObject(jqObject, time));
 }
 
