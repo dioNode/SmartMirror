@@ -27,6 +27,7 @@
   display: none;
   color: black;
   margin: 10px;
+  max-width: 200px;
 }
 
 .blobBtn img {
