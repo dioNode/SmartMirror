@@ -10,10 +10,12 @@ $(document).ready(function(){
   });
   $("#messageBox").on('press',toggleBubbles);
   $(".blobBtn").on('press', function(){
-    openBubble($(this));
+    console.log('pressing');
+    openBubble(this);
   });
   $(".blobBtn").on('depress', function(){
-    closeBubble($(this));
+    console.log('depressing');
+    closeBubble(this);
   });
 
   bubbleRadius = $(".blobBtn").height();
@@ -42,12 +44,7 @@ function openBubble(bubble){
     opacity: 0.8,
     width: enlargedWidth,
     height: enlargedHeight
-  }, {
-    duration: 500,
-    complete: function() {
-      //test
-    }
-  });
+  }, 500);
 }
 
 function closeBubble(bubble){
