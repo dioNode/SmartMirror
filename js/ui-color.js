@@ -2,6 +2,7 @@ var RED = "#ff9696";
 var GREEN = "#96ff96";
 var ORANGE = "#ffc896";
 var BLUE = "#9fdcf4";
+var WHITE = "#fff";
 
 $(document).ready(function() {
   $("#colorChangeButton").on('press', showColorDialog);
@@ -16,6 +17,8 @@ $(document).ready(function() {
     changeColor(ORANGE);
   } else if (localStorage["colour"] == BLUE) {
     changeColor(BLUE);
+  } else if (localStorage["colour"] == WHITE) {
+    changeColor(WHITE);
   }
 
   $(".colorRedBtn").on('press', function(){
@@ -33,6 +36,10 @@ $(document).ready(function() {
   $(".colorBlueBtn").on('press', function(){
     changeColor(BLUE);
     localStorage["colour"] = BLUE;
+  });
+  $(".colorWhiteBtn").on('press', function(){
+    changeColor(WHITE);
+    localStorage["colour"] = WHITE;
   });
 });
 
