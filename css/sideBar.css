@@ -13,10 +13,10 @@
 }
 
 .blobBtn {
-  top:-20px;
+  top:-18px;
   left:-1px;
   margin: 20px;
-  width: 30px;
+  height: 28px;
   border-radius: 20px;
   background-color: #9fdcf4;
   opacity: 0.8;
