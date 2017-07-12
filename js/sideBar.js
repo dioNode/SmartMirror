@@ -9,40 +9,61 @@ $(document).ready(function(){
     minHeight: -200
   });
   $("#messageBox").on('press',toggleBubbles);
-  $(".blobBtn").on('press',openBubble(this));
-  $(".blobBtn").on('depress',closeBubble(this));
+  $(".blobBtn").on('press', function(){
+    openBubble($(this));
+  });
+  $(".blobBtn").on('depress', function(){
+    closeBubble($(this));
+  });
 
   bubbleRadius = $(".blobBtn").height();
 
-  $( ".blobBtn" ).hover(
-    function() {
-      openBubble(this);
-    }, function() {
-      closeBubble(this);
-    }
-  );
+  // $( ".blobBtn" ).hover(
+  //   function() {
+  //     openBubble(this);
+  //   }, function() {
+  //     closeBubble(this);
+  //   }
+  // );
 });
 
 function openBubble(bubble){
   var enlargedHeight = bubbleRadius + 5;
-  $(bubble).children().show();
-  textWidth = $(bubble).children().outerWidth(true);
-  enlargedHeight = $(bubble).children().outerHeight(true);
+  //$(bubble).clearQueue();
+  $(bubble).stop();
+  //$(bubble).jqFloat('pause');
+
+  $(bubble).children("img").hide();
+  $(bubble).children("p").show();
+  textWidth = $(bubble).children("p").outerWidth(true);
+  enlargedHeight = $(bubble).children("p").outerHeight(true);
   enlargedWidth = bubbleRadius + textWidth;
   $(bubble).animate({
     opacity: 0.8,
     width: enlargedWidth,
     height: enlargedHeight
-  }, 500);
+  }, {
+    duration: 500,
+    complete: function() {
+      //test
+    }
+  });
 }
 
 function closeBubble(bubble){
+  $(bubble).children("p").hide();
+  $(bubble).children("img").show();
+  //$(bubble).jqFloat('unpause');
   $(bubble).animate({
     opacity: 0.8,
     width: bubbleRadius,
     height: bubbleRadius
-  }, 200)
-  $(bubble).children().hide();
+  }, {
+    duration: 200,
+    complete: function() {
+      $(bubble).jqFloat('play');
+    }
+  })
 }
 
 function toggleBubbles() {
