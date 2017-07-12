@@ -12,7 +12,7 @@ $(document).ready(function(){
   $(".blobBtn").on('press', function(){
     openBubble($(this));
   });
-  $(".blobBtn").on('unpress', function(){
+  $(".blobBtn").on('depress', function(){
     closeBubble($(this));
   });
 
