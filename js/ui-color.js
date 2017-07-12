@@ -6,10 +6,34 @@ var BLUE = "#9fdcf4";
 $(document).ready(function() {
   $("#colorChangeButton").on('press', showColorDialog);
 
-  $(".colorRedBtn").on('press', changeColorRed);
-  $(".colorGreenBtn").on('press', changeColorGreen);
-  $(".colorOrangeBtn").on('press', changeColorOrange);
-  $(".colorBlueBtn").on('press', changeColorBlue);
+  console.log(localStorage["colour"]);
+
+  if (localStorage["colour"] == RED) {
+    changeColor(RED);
+  } else if (localStorage["colour"] == GREEN) {
+    changeColor(GREEN);
+  } else if (localStorage["colour"] == ORANGE) {
+    changeColor(ORANGE);
+  } else if (localStorage["colour"] == BLUE) {
+    changeColor(BLUE);
+  }
+
+  $(".colorRedBtn").on('press', function(){
+    changeColor(RED);
+    localStorage["colour"] = RED;
+  });
+  $(".colorGreenBtn").on('press', function(){
+    changeColor(GREEN);
+    localStorage["colour"] = GREEN;
+  });
+  $(".colorOrangeBtn").on('press', function(){
+    changeColor(ORANGE);
+    localStorage["colour"] = ORANGE;
+  });
+  $(".colorBlueBtn").on('press', function(){
+    changeColor(BLUE);
+    localStorage["colour"] = BLUE;
+  });
 });
 
 
@@ -18,54 +42,16 @@ function showColorDialog() {
   $(".colorMenuButton").fadeOut();
 }
 
-function changeColorRed() {
+function changeColor(colour){
   $(".colorBtn").fadeOut();
   $(".colorMenuButton").fadeIn();
-  console.log("red");
+  console.log(colour);
 
-  $(".colorMenuButton").css("background-color", RED);
-  $(".slider").css("border-color", RED);
-  $(".blobBtn").css("background-color", RED);
-  $(".overlay").css("color", RED);
-  $("#brightnessBar").css("border-color", RED);
-  $("#brightnessFace").css("background-color", RED);
-}
-
-function changeColorGreen() {
-  $(".colorBtn").fadeOut();
-  $(".colorMenuButton").fadeIn();
-  console.log("green");
-
-  $(".colorMenuButton").css("background-color", GREEN);
-  $(".slider").css("border-color", GREEN);
-  $(".blobBtn").css("background-color", GREEN);
-  $(".overlay").css("color", GREEN);
-  $("#brightnessBar").css("border-color", GREEN);
-  $("#brightnessFace").css("background-color", GREEN);
-}
-
-function changeColorOrange() {
-  $(".colorBtn").fadeOut();
-  $(".colorMenuButton").fadeIn();
-  console.log("orange");
-
-  $(".colorMenuButton").css("background-color", ORANGE);
-  $(".slider").css("border-color", ORANGE);
-  $(".blobBtn").css("background-color", ORANGE);
-  $(".overlay").css("color", ORANGE);
-  $("#brightnessBar").css("border-color", ORANGE);
-  $("#brightnessFace").css("background-color", ORANGE);
-}
-
-function changeColorBlue() {
-  $(".colorBtn").fadeOut();
-  $(".colorMenuButton").fadeIn();
-  console.log("blue");
-
-  $(".colorMenuButton").css("background-color", BLUE);
-  $(".slider").css("border-color", BLUE);
-  $(".blobBtn").css("background-color", BLUE);
-  $(".overlay").css("color", BLUE);
-  $("#brightnessBar").css("border-color", BLUE);
-  $("#brightnessFace").css("background-color", BLUE);
+  $(".colorMenuButton").css("background-color", colour);
+  $(".slider").css("border-color", colour);
+  $(".blobBtn").css("background-color", colour);
+  $(".overlay").css("color", colour);
+  $("#brightnessBar").css("border-color", colour);
+  $("#brightnessFace").css("background-color", colour);
+  update_greeting_color(colour);
 }

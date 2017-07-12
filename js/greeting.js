@@ -9,4 +9,13 @@ $(document).ready(function(){
   } else {
     $("#welcome").hide()
   }
+
+  var textColor =  $(".overlay").css("color");
+  update_greeting_color(textColor);
 });
+
+function update_greeting_color(textColor){
+  $("#welcome").css("color", textColor);
+  console.log(textColor);
+}
+//test
