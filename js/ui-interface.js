@@ -15,7 +15,9 @@ function regObject(jqObject, time) {
 }
 
 function registerObject(jqObject, time) {
-  registeredObjects.push(new regObject(jqObject, time));
+  for (object in jqObject)
+  registeredObjects.push(new regObject(object, time));
+  //registeredObjects.push(new regObject(jqObject, time));
 }
 
 function isInBounds(regobject) {
