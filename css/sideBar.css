@@ -26,4 +26,10 @@
 .blobBtn p {
   display: none;
   color: black;
+  margin: 10px;
+}
+
+.blobBtn img {
+  width: inherit;
+  height: inherit;
 }
