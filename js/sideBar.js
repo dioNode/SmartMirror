@@ -44,7 +44,8 @@ function openBubble(bubble){
     $(bubble).children("p").show();
     textWidth = $(bubble).children("p").outerWidth(true);
     enlargedHeight = $(bubble).children("p").outerHeight(true);
-    enlargedWidth = bubbleRadius + textWidth;
+    //enlargedWidth = bubbleRadius + textWidth;
+    enlargedWidth = 100;
     $(bubble).animate({
       opacity: 0.8,
       width: enlargedWidth,

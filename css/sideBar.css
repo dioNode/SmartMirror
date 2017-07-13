@@ -30,8 +30,12 @@
   display: none;
   position: relative;
   color: black;
+  width: 80px;
   margin: 10px;
-  max-width: 200px;
+}
+
+.blobBtn .bubbleWrap {
+  padding: 10px;
 }
 
 .blobBtn img {
