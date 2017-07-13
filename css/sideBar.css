@@ -28,6 +28,7 @@
 
 .blobBtn p {
   display: none;
+  position: relative;
   color: black;
   margin: 10px;
   max-width: 200px;

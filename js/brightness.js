@@ -145,13 +145,13 @@ function setSliderOffset(brightness){
 
 function calculateOpacity(brightness) {
   maxOpacity = 0;
-  minOpacity = 0.9;
+  minOpacity = 0.7;
   opacity = (1-brightness)*(minOpacity-maxOpacity);
   return opacity;
 }
 
 function calculateTextOpacity(brightness){
-  minOpacity = 0.6;
+  minOpacity = 0.7;
   maxOpacity = 1;
   opacity = (maxOpacity-minOpacity)*brightness + minOpacity;
   return opacity;

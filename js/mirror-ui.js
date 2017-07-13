@@ -2,6 +2,7 @@ function initialiseUI() {
   setOverlayObject($('.overlay'));
 
   registerObject($('.slider'), 1000);
+  registerObject($('#RAIDguy'), 1000);
 
   registerObject($('#colorChangeButton'), 1000);
   registerObject($('.colorRedBtn'), 1000);
