@@ -11,6 +11,7 @@ $(document).ready(function(){
   });
   setTimeout(function(){ bubbleOpenable = true; }, 3000);
   $("#messageBox").on('click',toggleBubbles);
+  $("#messageBox").on('press',toggleBubbles);
   $(".blobBtn").on('press', function(){
     console.log('pressing');
     openBubble(this);
