@@ -8,18 +8,7 @@ $(document).ready(function() {
   $("#colorChangeButton").on('press', showColorDialog);
 
   console.log(localStorage["colour"]);
-
-  if (localStorage["colour"] == RED) {
-    changeColor(RED);
-  } else if (localStorage["colour"] == GREEN) {
-    changeColor(GREEN);
-  } else if (localStorage["colour"] == ORANGE) {
-    changeColor(ORANGE);
-  } else if (localStorage["colour"] == BLUE) {
-    changeColor(BLUE);
-  } else if (localStorage["colour"] == WHITE) {
-    changeColor(WHITE);
-  }
+  changeColor(localStorage["colour"]);
 
   $(".colorRedBtn").on('press', function(){
     changeColor(RED);
