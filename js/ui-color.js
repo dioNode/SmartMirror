@@ -39,7 +39,7 @@ function showColorDialog() {
   $(".colorMenuButton").fadeOut();
   cancelTimer = setTimeout(function(){
     changeColor(localStorage["colour"]);
-  }, 5000);
+  }, 10000);
 }
 
 function changeColor(colour){
