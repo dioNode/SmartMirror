@@ -2,6 +2,9 @@ $(document).ready(function(){
   $("#RAIDguy").on('press',function(){
     location.href = "welcome";
   });
+  $("#RAIDguy").on('click',function(){
+    location.href = "welcome";
+  });
   updateTime();
   var t=setInterval(update,1000);
   initiateFades();
