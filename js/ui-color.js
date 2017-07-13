@@ -46,7 +46,7 @@ function changeColor(colour){
   $(".colorBtn").fadeOut();
   $(".colorMenuButton").fadeIn();
   console.log(colour);
-  clearTimeout(myVar);
+  clearTimeout(cancelTimer);
 
   $(".colorMenuButton").css("background-color", colour);
   $(".slider").css("border-color", colour);
