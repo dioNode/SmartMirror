@@ -3,6 +3,7 @@ var GREEN = "#96ff96";
 var ORANGE = "#ffc896";
 var BLUE = "#9fdcf4";
 var WHITE = "#fff";
+var cancelTimer;
 
 $(document).ready(function() {
   $("#colorChangeButton").on('press', showColorDialog);
@@ -36,12 +37,16 @@ $(document).ready(function() {
 function showColorDialog() {
   $(".colorBtn").fadeIn();
   $(".colorMenuButton").fadeOut();
+  cancelTimer = setTimeout(function(){
+    changeColor(localStorage["colour"]);
+  }, 5000);
 }
 
 function changeColor(colour){
   $(".colorBtn").fadeOut();
   $(".colorMenuButton").fadeIn();
   console.log(colour);
+  clearTimeout(myVar);
 
   $(".colorMenuButton").css("background-color", colour);
   $(".slider").css("border-color", colour);
