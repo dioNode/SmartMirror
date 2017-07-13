@@ -8,7 +8,7 @@ $(document).ready(function(){
     speed: 4000,
     minHeight: -200
   });
-  $("#messageBox").on('press',toggleBubbles);
+  $("#messageBox").on('click',toggleBubbles);
   $(".blobBtn").on('press', function(){
     console.log('pressing');
     openBubble(this);
@@ -71,6 +71,7 @@ function toggleBubbles() {
     console.log('stopping');
   } else {
     console.log('starting');
+    $("#messageBox").attr("src","img/chat_open.jpg");
     $(".blobBtn").jqFloat('play');
   }
   bubbleOn = !bubbleOn;
