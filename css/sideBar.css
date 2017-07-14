@@ -24,6 +24,7 @@
   text-align: center;
   /*border: solid 1px black;*/
   box-shadow: 2px 2px 2px black;
+  /*z-index: 0;*/
 }
 
 .blobBtn p {

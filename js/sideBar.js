@@ -1,8 +1,10 @@
 var bubbleOn = true;
 var bubbleRadius;
 var bubbleOpenable = false;
+var bubbleIndex;
 
 $(document).ready(function(){
+  bubbleIndex = $(".blobBtn").css("zIndex");
   $(".blobBtn").jqFloat({
     width: 70,
     height: 300,
@@ -33,8 +35,8 @@ $(document).ready(function(){
 });
 
 function openBubble(bubble){
-  console.log(bubbleOpenable);
   if (bubbleOpenable) {
+    $(bubble).css("zIndex","1");
     var enlargedHeight = bubbleRadius + 5;
     $(bubble).clearQueue();
     $(bubble).stop();
@@ -56,6 +58,7 @@ function openBubble(bubble){
 
 function closeBubble(bubble){
   if (bubbleOpenable){
+    $(bubble).css("zIndex","0");
     $(bubble).children("p").hide();
     $(bubble).children("img").show();
     //$(bubble).jqFloat('unpause');
@@ -75,6 +78,7 @@ function closeBubble(bubble){
 
 function shutBubbles(){
   bubble = $(".blobBtn");
+  $(bubble).css("zIndex","0");
   $(bubble).children("p").hide();
   $(bubble).children("img").show();
   $(bubble).css("opacity","0.8").css("width",bubbleRadius).css("height",bubbleRadius);
