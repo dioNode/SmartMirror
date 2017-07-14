@@ -49,9 +49,12 @@ function setWeatherImg(condition){
     $("#weatherImg").attr('src','img/weatherTypes/sunny.svg');
   }
 
+  console.log("start colour");
   $.when(extractSVGCode($("#weatherImg"))).then(function() {
     changeColor(localStorage["colour"]);
+    console.log("changed",localSorage["colour"]);
   });
+  changeColor(localStorage["colour"]);
 }
 
 function extractSVGCode(lesvg) {
