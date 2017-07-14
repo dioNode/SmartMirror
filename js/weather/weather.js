@@ -7,16 +7,6 @@ $(document).ready(function() {
   }, "jsonp").done(function() {
     calculateWeather(currentCity,currentCountry);
   });
-  console.log(currentCity);
-  $("#weather img").svg({
-    onLoad: function()
-      {
-      var svg = $("#weather img").svg('get');
-      console.log($(svg));
-      svg.load('img/weatherTypes/sunny.svg', {addTo: true,  changeSize: false});
-      },
-    settings: {}}
-  );
 });
 
 function calculateWeather(currentCity, currentCountry){
@@ -48,16 +38,48 @@ function calculateWeather(currentCity, currentCountry){
 
 function setWeatherImg(condition){
   if (condition.indexOf('storm')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/shower.svg');
+    $("#weatherImg").attr('src','img/weatherTypes/shower.svg');
   } else if (condition.indexOf('rain')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/rainy.svg');
+    $("#weatherImg").attr('src','img/weatherTypes/rainy.svg');
   } else if (condition.indexOf('snow')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/thundershower.svg');
+    $("#weatherImg").attr('src','img/weatherTypes/thundershower.svg');
   } else if (condition.indexOf('cloud')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/cloudy.svg');
+    $("#weatherImg").attr('src','img/weatherTypes/cloudy.svg');
   } else {
-    $("#weather img").attr('src','img/weatherTypes/sunny.svg');
+    $("#weatherImg").attr('src','img/weatherTypes/sunny.svg');
   }
+
+  $.when(extractSVGCode($("#weatherImg"))).then(function() {
+    changeColor(localStorage["colour"]);
+  });
+}
+
+function extractSVGCode(lesvg) {
+  var $img = lesvg;
+            var imgID = $img.attr('id');
+            var imgClass = $img.attr('class');
+            var imgURL = $img.attr('src');
+
+            jQuery.get(imgURL, function(data) {
+                // Get the SVG tag, ignore the rest
+                var $svg = jQuery(data).find('svg');
+
+                // Add replaced image's ID to the new SVG
+                if(typeof imgID !== 'undefined') {
+                    $svg = $svg.attr('id', imgID);
+                }
+                // Add replaced image's classes to the new SVG
+                if(typeof imgClass !== 'undefined') {
+                    $svg = $svg.attr('class', imgClass+' replaced-svg');
+                }
+
+                // Remove any invalid XML tags as per http://validator.w3.org
+                $svg = $svg.removeAttr('xmlns:a');
+
+                // Replace image with new SVG
+                $img.replaceWith($svg);
+
+            }, 'xml');
 }
 
 function findLevel(mph){

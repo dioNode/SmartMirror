@@ -2,7 +2,7 @@
   /*font-size: 20px;*/
 }
 
-#weather img{
+#weather svg {
   display: inline-block;
   float: left;
   width: 50px;

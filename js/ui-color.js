@@ -63,7 +63,7 @@ function changeColor(colour){
   $(".overlay").css("color", colour);
   $("#brightnessBar").css("border-color", colour);
   $("#brightnessFace").css("background-color", colour);
-  $("#weather img").attr('fill',colour);
+  $("#weather svg g g path").css('fill',colour);
   var rect = $('#weather .colour').css('fill',colour);
   update_greeting_color(colour);
 }
