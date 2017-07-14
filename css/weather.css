@@ -13,14 +13,10 @@
   vertical-align: middle;
 }
 
-#location{
-
+#weather img{
+  fill: blue;
 }
 
 #weather #temperature{
   font-size: 52px;
-}
-
-#wind{
-
 }

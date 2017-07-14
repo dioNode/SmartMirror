@@ -7,6 +7,7 @@ var cancelTimer;
 
 $(document).ready(function() {
   $("#colorChangeButton").on('press', showColorDialog);
+  $("#colorChangeButton").on('click', showColorDialog);
 
   console.log(localStorage["colour"]);
   changeColor(localStorage["colour"]);
@@ -15,7 +16,15 @@ $(document).ready(function() {
     changeColor(RED);
     localStorage["colour"] = RED;
   });
+  $(".colorRedBtn").on('click', function(){
+    changeColor(RED);
+    localStorage["colour"] = RED;
+  });
   $(".colorGreenBtn").on('press', function(){
+    changeColor(GREEN);
+    localStorage["colour"] = GREEN;
+  });
+  $(".colorGreenBtn").on('click', function(){
     changeColor(GREEN);
     localStorage["colour"] = GREEN;
   });
@@ -54,5 +63,7 @@ function changeColor(colour){
   $(".overlay").css("color", colour);
   $("#brightnessBar").css("border-color", colour);
   $("#brightnessFace").css("background-color", colour);
+  $("#weather img").attr('fill',colour);
+  var rect = $('#weather .colour').css('fill',colour);
   update_greeting_color(colour);
 }

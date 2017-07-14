@@ -8,6 +8,15 @@ $(document).ready(function() {
     calculateWeather(currentCity,currentCountry);
   });
   console.log(currentCity);
+  $("#weather img").svg({
+    onLoad: function()
+      {
+      var svg = $("#weather img").svg('get');
+      console.log($(svg));
+      svg.load('img/weatherTypes/sunny.svg', {addTo: true,  changeSize: false});
+      },
+    settings: {}}
+  );
 });
 
 function calculateWeather(currentCity, currentCountry){
@@ -39,15 +48,15 @@ function calculateWeather(currentCity, currentCountry){
 
 function setWeatherImg(condition){
   if (condition.indexOf('storm')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/shower.png');
+    $("#weather img").attr('src','img/weatherTypes/shower.svg');
   } else if (condition.indexOf('rain')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/rainy.png');
+    $("#weather img").attr('src','img/weatherTypes/rainy.svg');
   } else if (condition.indexOf('snow')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/thundershower.png');
+    $("#weather img").attr('src','img/weatherTypes/thundershower.svg');
   } else if (condition.indexOf('cloud')!==-1){
-    $("#weather img").attr('src','img/weatherTypes/cloudy.png');
+    $("#weather img").attr('src','img/weatherTypes/cloudy.svg');
   } else {
-    $("#weather img").attr('src','img/weatherTypes/sunny.png');
+    $("#weather img").attr('src','img/weatherTypes/sunny.svg');
   }
 }
 
