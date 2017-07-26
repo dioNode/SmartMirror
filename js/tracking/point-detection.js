@@ -20,7 +20,7 @@ function initialisePointDetection() {
   // });
 
 
-  var tracker = new tracking.ColorTracker('cyan');
+  var tracker = new tracking.ColorTracker('red');
   tracker.setMinDimension(5);
   tracker.setMaxDimension(100);
 
